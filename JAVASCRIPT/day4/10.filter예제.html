@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>filter 예제</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<ul>
+		<li>1번</li>
+		<li class="second">2번</li>
+		<li>3번</li>
+		<li>4번</li>
+		<li>5번</li>
+	</ul>
+	<script>
+		/*
+		- first() : 선택된 요소들 중 첫번째 요소
+		- last() : 선택된 요소들 중 마지막 요소
+		- eq(n) : 선택된 요소 중 (n+1)번째 요소
+		- not('선택자') : 선택된 요소 중 선택자와 일치하지 않은 요소
+		- filter('선택자') : 선택되 요소 중 선택자와 일치하는 요소
+		*/
+		$('li').first().css('font-size', '20px');
+		$('li').last().css('font-weight','bold');
+		$('li').eq(2).css('text-decoration','underline');
+		$('li').not('.second').css('border','2px solid black');
+		$('li').filter('.second').css('background','gray');
+	</script>
+</body>
+</html>

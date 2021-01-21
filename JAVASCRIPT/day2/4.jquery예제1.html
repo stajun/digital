@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<button class="btn1" id="btn1">버튼1</button>
+	<button class="btn2" id="btn2">버튼2</button>
+	<script>
+		//javascript 이벤트 처리 방식
+		window.onload = function(){
+			var btn1 = document.getElementById('btn1');
+			btn1.onclick = function(){
+				alert('버튼1 클릭');
+			}
+		}
+		//jquery 이벤트 처리 방식
+		$(function(){
+			$('#btn2').click(function(){
+				alert('버튼2 클릭');
+			})
+		})
+	</script>
+</body>
+</html>

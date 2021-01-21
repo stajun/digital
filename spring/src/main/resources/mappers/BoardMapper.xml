@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.green.spring.dao.BoardDao">
+  <select id="getBoardList" resultType="kr.green.spring.vo.BoardVo">
+  	select * from board where isDel = 'N'
+  		<if test="cri.type == 1">
+  			and (title like concat('%',#{cri.search},'%')
+  			or content like concat('%',#{cri.search},'%')
+  			or writer like concat('%',#{cri.search},'%'))
+  		</if>
+  		<if test="cri.type == 2">
+  			and title like concat('%',#{cri.search},'%')
+  		</if> 
+  		<if test="cri.type == 3">
+  			and content like concat('%',#{cri.search},'%')
+  		</if>
+  		<if test="cri.type == 4">
+  			and writer like concat('%',#{cri.search},'%')
+  		</if>
+  		order by num desc
+  		limit #{cri.pageStart}, #{cri.perPageNum}
+  </select>
+  <select id="getBoard" resultType="kr.green.spring.vo.BoardVo">
+  	select * from board where num = #{num} and isDel ='N'
+  </select>
+  <insert id="insertBoard" useGeneratedKeys="true" keyProperty="board.num" parameterType="kr.green.spring.vo.BoardVo">
+  	insert into
+  		board(title, writer, content)
+  		values(#{board.title}, #{board.writer}, #{board.content})
+  </insert>
+  <update id="updateBoard" parameterType="kr.green.spring.vo.BoardVo">
+  	update board
+  		set 
+  			title = #{board.title},
+  			content = #{board.content},
+  			isDel = #{board.isDel}
+  		where num = #{board.num}
+  </update>
+  <update id="updateViews">
+  	update board
+  		set views = views+1 where num = #{num} and isDel = 'N'
+  </update>
+  <select id="getTotalCount" resultType="int">
+  	select count(*) from board where isDel = 'N' 
+  		<if test="cri.type == 1">
+  			and (title like concat('%',#{cri.search},'%')
+  			or content like concat('%',#{cri.search},'%')
+  			or writer like concat('%',#{cri.search},'%'))
+  		</if>
+  		<if test="cri.type == 2">
+  			and title like concat('%',#{cri.search},'%')
+  		</if> 
+  		<if test="cri.type == 3">
+  			and content like concat('%',#{cri.search},'%')
+  		</if>
+  		<if test="cri.type == 4">
+  			and writer like concat('%',#{cri.search},'%')
+  		</if>
+  </select>
+  <insert id="insertFile">
+  	insert into files(boardNum, oriFilename, filename)
+  		values(#{num}, #{oriFilename}, #{filename})
+  </insert>
+  <select id="getFileList" resultType="kr.green.spring.vo.FileVo">
+  	select * from files where boardNum = #{num} and isDel = 'N'
+  </select>
+  <update id="deleteFile">
+  	update files set isDel='Y' where boardNum = #{num}
+  </update>
+  <select id="getLike" resultType="kr.green.spring.vo.LikeVo">
+  	select * from likes 
+  		where boardNum = #{like.boardNum} and	id = #{like.id}  		
+  </select>
+  <insert id="insertLike">
+  	insert into likes(boardNum, id, up)
+  		values(#{like.boardNum}, #{like.id}, #{like.up})
+  </insert>
+  <update id="updateLike">
+  	update likes set up = #{like.up}
+  		where id= #{like.id} and boardNum = #{like.boardNum}
+  </update>
+</mapper>
+
+
+
+

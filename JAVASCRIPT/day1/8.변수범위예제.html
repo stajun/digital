@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>변수범위 예제</title>
+</head>
+<body>
+	<script>
+		/*
+		- var
+			- 변수 중복 선언 가능
+			- 함수 내에서만 지역 변수가 존재
+		- let
+			- 블록{}, 제어문{}에서도 지역변수가 존재
+		*/
+		var num1 = 10;//전역변수
+		let lnum1 = 10;//전역변수
+		{
+			var num1 = 20;//전역변수
+			console.log('{}안 num1 : ' + num1);
+			let lnum1 = 20;//지역변수
+			console.log('{}안 lnum1: ' + lnum1);
+		}
+		console.log('{}밖 num1 : ' + num1);//전역변수
+		console.log('{}밖 lnum1: ' + lnum1);//전역변수
+
+		if(true){
+			var num2 = 30;//전역변수
+			let lnum2 = 30;//지역변수
+		}
+		console.log('{}밖 num2 : ' + num2);
+		console.log('{}밖 lnum2: ' + lnum2);//선언된 변수가 없어서 에러 발생
+
+	</script>
+</body>
+</html>

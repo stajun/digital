@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>그림자 속성</title>
+	<style>
+		/* 
+		- 텍스트 그림자 : text-shadow
+			- text-shadow : 수평거리 수직거리 흐릿한효과(선택) 색상
+		 */
+		p{
+			font-size: 30px;
+			font-weight: bold;
+		}
+		.shadow1{		text-shadow: 3px 0px 0px red;		}
+		.shadow2{		text-shadow: 3px 3px 0px red;		}
+		.shadow3{		text-shadow: 3px 3px 5px red;		}
+		.shadow4{		text-shadow: 3px 3px 5px red, 0px 0px 5px yellow;		}
+		.shadow5{		
+			color: white;
+			text-shadow: 0px 0px 3px darkblue;		
+		}
+		.shadow6{	
+			color: white;
+			text-shadow: 2px 2px 3px black;
+		}
+		/* 
+		- 박스 그림자 : box-shadow
+			- box-shadow : 수평 수직 번짐(선택) 그림자크기(선택) 색상 그림자방향
+		*/
+		div{
+			width: 200px;
+			margin-top: 20px;
+		}
+		.box1{	box-shadow: 5px 0px 0px 0px red ;		}
+		.box2{	box-shadow: 5px 5px 0px 0px red ;		}
+		.box3{	box-shadow: 5px 5px 5px 0px red ;		}
+		.box4{	box-shadow: 5px 5px 5px 5px red ;		}
+		.box5{	box-shadow: 5px 5px 5px 5px red inset;		}
+		.box6{
+			box-shadow: 2px 2px 2px black,
+				0 0 25px blue,
+				0 0 5px darkblue;
+		}
+	</style>
+</head>
+<body>
+	<p class="shadow1">그림자 효과1</p>
+	<p class="shadow2">그림자 효과2</p>
+	<p class="shadow3">그림자 효과3</p>
+	<p class="shadow4">그림자 효과4</p>
+	<p class="shadow5">그림자 효과5</p>
+	<p class="shadow6">그림자 효과6</p>
+	<div class="box1">그림자 효과1</div>
+	<div class="box2">그림자 효과2</div>
+	<div class="box3">그림자 효과3</div>
+	<div class="box4">그림자 효과4</div>
+	<div class="box5">그림자 효과5</div>
+	<div class="box6">그림자 효과6</div>
+</body>
+</html>

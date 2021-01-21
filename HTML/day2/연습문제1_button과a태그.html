@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>2일차:연습문제1</title>
+</head>
+<body>
+	<!-- 
+		a태그와 button태그를 이용하여 네이버로 이동하는 버튼을 만들어 보세요. 
+	-->
+	<!-- 
+		button태그 안에 a태그가 있는 경우는 네이버 글자 부분만 a태그가 적용되어서
+		글자가 아닌 버튼부분을 클릭하면 이동하지 않음
+	-->
+	<button type="button">
+		<a href="//naver.com" target="_blank">네이버</a>
+	</button>
+	<br>
+	<!-- 
+		a태그 안에 button태그가 있는 경우는 버튼 자체에 a태그가 적용되어서
+		글자가 아닌 버튼부분을 클릭해도 이동함
+	-->
+	<a href="//naver.com" target="_blank">
+		<button type="button">네이버</button>
+	</a>
+</body>
+</html>

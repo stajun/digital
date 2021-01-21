@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>데이트 피커</title>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+	<link rel="stylesheet" href="../css/jquery-ui.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+	<input type="text" id="datepicker">
+	<button class="btn">클릭</button>
+	<script>
+		$(function(){
+			/*
+			dateFormat : 날짜 선택 시 인풋창에 들어가는 날짜 형태를 설정
+			dayNamesMin/dayNames/dayNamesShort : 요일 명칭을 설정
+			monthNames/monthNamesShort : 월 명칭을 설정
+			minDate : 선택할 수 있는 최소 날짜를 지정
+			maxDate : 선택할 수 있는 최대 날짜를 지정
+			*/
+			$('#datepicker').datepicker({
+				dateFormat : 'yy-mm-dd',
+				dayNamesMin : ['일','월','화','수','목','금','토'],
+				monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월'
+						,'9월','10월','11월','12월'],
+				monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월'
+						,'9월','10월','11월','12월'],
+				minDate : '2020-12-22',
+				maxDate : '2021-1-1'
+			});
+			$('.btn').click(function(){
+				var val = $('#datepicker').val();
+				console.log(val);
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>hover이벤트 예제</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.btn{
+			display: block;
+			width: 100%;
+			background-color: yellow;
+			border: 1px solid black;
+			height: 50px;
+			line-height: 50px;
+			font-size: 20px;
+		}
+		.box{
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn">버튼</button>
+	<div class="box"></div>
+	<script>
+		/*
+		- 버튼과 박스를 생성
+		- 버튼에 마우스를 가져대면 박스가 천천히 위로 접힘
+		- 버튼을 마우스에서 떼면 박스가 천천히 아래로 내려감
+		*/
+		$(function(){
+			// $('.btn').hover(function(){
+			// 	$('.box').slideUp();
+			// },function(){
+			// 	$('.box').slideDown();
+			// })
+			$('.btn').hover(function(){
+				$('.box').slideToggle();	
+			})
+		})
+	</script>
+</body>
+</html>

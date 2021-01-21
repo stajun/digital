@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>반응형2</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.box{
+			width: calc(100% / 3);
+			border: 1px solid red;
+			/* 
+			vh : view height의 약자로, 브라우저 높이를 100으로 나눈 값
+			vw : view width의 약자로, 브라우저 가로를 100으로 나눈 값
+			*/
+			height: 100vh;
+			box-sizing: border-box;
+			float: left;
+		}
+		.box2{
+			border-color: blue;
+		}
+		.box3{
+			border-color: green;
+		}
+		@media (max-width: 1200px){
+			.box3{
+				display: none;
+			}
+			.box{
+				width: calc(100% / 2);
+			}
+		}
+		@media (max-width: 640px){
+			.box2{
+				display: none;
+			}
+			.box{
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1"></div>
+	<div class="box box2"></div>
+	<div class="box box3"></div>
+</body>
+</html>

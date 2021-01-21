@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>복습예제3</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.btn{
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+			line-height: 100px;
+			text-align: center;
+			font-size: 40px;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<a href="#" class="btn">버튼</a>
+	<script>
+		/* a태그를 이용하여 버튼을 만들고, 버튼을 클릭하면 콘솔에 Hello가 출력
+		되도록 작성하세요. 단, a태그 클릭시 url주소에 #이 안붙도록 작성해야한다.*/
+		$('.btn').click(function(e){
+			e.preventDefault();
+			console.log('Hello')
+		})
+	</script>
+</body>
+</html>

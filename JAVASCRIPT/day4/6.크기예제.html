@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>크기 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			padding: 20px;
+			border: 1px solid black;
+			margin: 15px;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="output"></div>
+	<script>
+		/*
+		- $('선택자').width() : 요소의 컨텐츠 가로
+		- $('선택자').height() : 요소의 컨텐츠 높이
+		- $('선택자').innerWidth() : 요소의 컨텐츠+패딩 가로
+		- $('선택자').innerHeight() : 요소의 컨텐츠+패딩 높이
+		- $('선택자').outerWidth() : 요소의 컨텐츠+패딩+테두리 가로
+		- $('선택자').outerHeight() : 요소의 컨텐츠+패딩+테두리 높이
+		- $('선택자').width(길이) : 요소의 컨텐츠 가로를 설정
+		- $('선택자').height(길이) : 요소의 컨텐츠 높이를 설정
+		*/
+		var str ='';
+		str += 'width : ' + $('.box').width() + '<br>';
+		str += 'height : ' + $('.box').height() + '<br>';
+		str += 'Inner width : ' + $('.box').innerWidth() + '<br>';
+		str += 'Inner height : ' + $('.box').innerHeight() + '<br>';
+		str += 'Outer width : ' + $('.box').outerWidth() + '<br>';
+		str += 'Outer height : ' + $('.box').outerHeight() + '<br>';
+		$('.output').html(str);
+		$('.box').width(200).height(200);
+	</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>table 태그</title>
+</head>
+<body>
+	<!-- 
+		- table : 표
+		- table태그는 다른 태그와 조합해서 나온다.
+		- tr 태그 : 한 행을 의미
+		- td/th 태그 : 한 행에서 한 열을 의미
+		- td 태그 : 왼쪽 정렬, 보통 글씨
+		- th 태그 : 가운데 정렬, 굵은 글씨
+		
+		- 3행 4열 테이블을 만들려면?
+		 - tr태그 : 3개
+		 - td태그 : 4개 x 3줄 = 12개
+		
+		- table 태그 속성
+		 - border : 테두리 두께
+		 - bordercolor : 테두리 색상
+		 - width : 가로의 길이
+		- td/th 태그 속성
+		 - colspan/rowspan : 셀 병합
+		 - colspan : 여러 열을 하나의 열로 합침
+		 - rowspan : 여러 행을 하나의 행으로 함침
+	-->
+	<table border="1" bordercolor="#ff0000" width="100%">
+		<tr>
+			<th>1</th>
+			<th colspan="2">2</th>
+			<th>4</th>
+		</tr>
+		<tr>
+			<td rowspan="2">5</td>
+			<td>6</td>
+			<td>7</td>
+			<td>8</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>11</td>
+			<td>12</td>
+		</tr>
+	</table>
+	<!-- 
+		- thead, tbody, tfoot,caption 태그는 table태그를 사용할 때 필수는 아니지만
+			사용하면 편리한 점 있다.
+		- 순서는 thead>tbody>tfoot순으로 배치한다.
+	-->
+	<table border="1" bordercolor="blue" width="100%">
+		<caption>성적 테이블</caption>
+		<thead>
+			<tr>
+				<th>과목</th>
+				<th>이름</th>
+				<th>성적</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th colspan="2">평균</th>
+				<th>90</th>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>국어</td>
+				<td>홍길동</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>국어</td>
+				<td>임꺽정</td>
+				<td>90</td>
+			</tr>
+			<tr>
+				<td>국어</td>
+				<td>이순신</td>
+				<td>80</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

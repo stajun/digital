@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>클래스 예제2</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box{
+			background-image: url(https://images.mypetlife.co.kr/content/uploads/2019/09/06150205/cat-baby-4208578_1920.jpg);
+			background-size: 200px 200px;
+			width: 200px;
+			height: 200px;
+		}
+		.change{
+			background-image: url(https://lh3.googleusercontent.com/proxy/Z49AIhuFQ0JYU2mVHbyULXKTj3IXzixmES-LL4ZecIsoeOFBuLx3G2QjFSr-uIrtZoqV4ncffPWRhHfHiujm6JdRb26m1q7jp3YNrBtIyyJa6t8_Xw);
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box"></div>
+	<script>
+		// $('.box').hover(function(){
+		// 	$(this).toggleClass('change');
+		// })
+		$('.box').hover(function(){
+			$(this).addClass('change');
+		},function(){
+			$(this).removeClass('change');
+		})
+	</script>
+</body>
+</html>

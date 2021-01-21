@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>애니메이션 속성</title>
+	<style>
+		/* 
+		1. 애니메이션 등록(@keyframes)
+		- 시간비율은 0~100%, 0%인 경우 from으로 100%인 경우 to로 대체 가능
+		@keyframes 애니메이션명{
+			시간비율 {
+				스타일;
+			}
+			시간비율 {
+				스타일;
+			}
+		}
+		2. 애니메이션 적용
+		- 속성
+			- animation-name : 동작시킬 애니메이션 이름
+			- animation-duration : 1회 애니메이션 동작 시간
+			- animation-iteration-count : 애니메이션 반복 횟수, 숫자 or infinite
+		*/
+		@keyframes scaleFont {
+			from{
+				font-size: 20px;
+			}
+			50%{
+				font-size: 50px;
+			}
+			to{
+				font-size: 20px;
+			}
+		}
+		.ani{
+			animation-name: scaleFont;
+			animation-duration: 3s;
+			animation-iteration-count: infinite;
+		}
+	</style>
+</head>
+<body>
+	<span class="ani">애니메이션</span>
+</body>
+</html>

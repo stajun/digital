@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>복습예제2</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<button class="add">추가</button>
+	<div class="box"></div>
+	<script>
+		/* 추가 버튼을 만들고, 추가 버튼을 클릭하면 input태그가 추가되도록
+		작성해보세요. */
+		$(function(){
+			$('.add').click(function(){
+				var str = '<input tye="text" /><br>';
+				$('.box').append(str);
+				
+			})
+		})
+	</script>
+</body>
+</html>

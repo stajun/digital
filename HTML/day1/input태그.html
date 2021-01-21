@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>input태그</title>
+</head>
+<body>
+	<!-- 
+		input태그는 단일 태그로 속성값에 따라 다양한 기능들을 활용할 수 있다.
+		input태그는 form태그와 같이 사용된다.(이부분은 나중에 확인)
+		<input type="속성명">
+	-->
+	<!-- type="text" : 가장 많이 사용, 영문, 한글, 특문 등의 문자열을 입력-->
+	<input type="text" placeholder="미리보기"> <br>
+	<!--type="button": 일반 버튼
+		type="reset" : 리셋 버튼 - 같은 form태그 안에 있는 input값을 리셋
+		type="submit": 서버에 전송하는 버튼으로, 회원가입,로그인 버튼 등
+		위 셋은 button태그로 대체 가능
+	-->
+    <form action="">
+			<input type="text" name="data"> <br>
+			<input type="button" value="버튼"> <br>
+			<input type="reset" value="리셋"> <br>
+			<input type="submit" value="전송"> <br>
+    </form>
+    <!-- type="password" : 비밀번호를 입력할 때 사용, 비밀번호는 *로 표시 -->
+    <input type="password"> <br>
+    <!-- type="checkbox" : 다중 선택을 이용할 때 사용, 
+			같은 문제의 checkbox의 경우 name을 같게 한다.-->
+    <form action="">
+			좋아하는 괄일은? (복수 선택 가능) <br>
+			<input type="checkbox" name="fruit" value="apple">사과 
+			<input type="checkbox" name="fruit" value="orange">오렌지
+			<input type="submit" value="제출">
+    </form>
+    <form action="">
+			좋아하는 괄일은? (복수 선택 가능) <br>
+			<input type="checkbox" name="fruit" value="apple" id="apple">
+			<label for="apple">사과</label>
+			<label>
+				<input type="checkbox" name="fruit" value="orange" id="orange">오렌지
+			</label>
+			<input type="submit" value="제출">
+		</form>
+		<!-- type="color" 색을 선택할 때 사용, 색상 정보는 16진수로 표현 -->
+		<form action="">
+			<input type="color" name="color">
+			<input type="submit" value="전송">
+		</form>
+		<!--
+			type="month"					: 년 월 표시
+			type="week"						: 년 주 표시
+			type="date"						: 년 월 일 표시
+			type="datetime-local"	: 년 월 일 시 분 초 표시
+			type="time"						: 시 분 초 표시
+			일반적으로 일시를 나타낼때 사용하는 속성들이지만, 실제로는
+			Jquery에서 제공하는 datepicker나 부트스트랩에서 제공하는 datepicker를
+			이용한다.
+		 -->
+		<input type="month"> <br>
+		<input type="week"> <br>
+		<input type="date"> <br>
+		<input type="datetime-local"> <br>
+		<input type="time"> <br>
+		<!-- type="email" : 이메일 형식만 입력할 수 있게 체크, xxx@xx.xx
+			이메일 형태가 맞는지 체크하여 아니면 알림창을 띄움, 입력 안하면 체크 안함-->
+		<form action="">
+			<input type="email" name="email">
+			<input type="submit" value="전송">
+		</form>
+		<!-- type="file" : 첨부파일을 선택 -->
+		<input type="file">
+		<!-- type="hidden" : 값을 안보이게 숨김,실제 백엔드 개발에서 사용 -->
+		<input type="hidden" value="안녕하세요.">
+		<!-- type="image" : 이미지를 불러옴, img태그로 대체 가능
+			src : 이미지 주소
+			alt : 이미지가 없을 경우 보여질 문자 -->
+		<input type="image" src="http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg" alt="그림없음">
+		<br>
+		<!-- type="number" : 숫자만 입력 가능한 창 -->
+		<input type="number">
+		<!-- type="url" : url 형식인지 체크, http:// -->
+		<form action="">
+			<input type="url">
+			<input type="submit" value="전송">
+		</form>
+		<!-- type="search" : 문자열을 입력할수 있음, text와 차이는 search는
+			문자열 입력시 문자열을 삭제할 수 있는 x버튼 제공 -->
+		<input type="search"> <br>
+		<!-- type="range" : 상태바를 이용하여 범위를 조절, 상태바 모양은
+			브라우저에 따라 다를 수 있음 -->
+		1<input type="range">10 <br>
+		<!-- type="radio" : 체크박스와 유사하지만 체크박스는 다중 선택이 가능,
+		라디오는 1가지만 선택 가능 -->
+		<form action="">
+			스위치
+			<label>
+				<input type="radio" name="radio" value="off"> off
+			</label>
+			<label>
+				<input type="radio" name="radio" value="on"> on
+			</label>
+		</form>
+</body>
+</html>

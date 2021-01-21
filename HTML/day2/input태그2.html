@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>input태그2</title>
+</head>
+<body>
+	<!-- 모든 태그는 속성을 가질 수 있다.
+		<태그명 속성1="값1" 속성2="값2" 속성3=값3 속성4>
+		속성3에서 값3의 경우 값3은 공백을 만나기전까지의 문자열을 값으로 인식
+		class="a b"와 class=a b는 다른 결과를 갖는다.
+		class="a b"는 class의 값으로 a와 b를 갖지만 
+		class=a b는 class의 값으로 a를 가지고, b는 속성이 된다.
+		속성4는 값을 쓰지 않아도 적용되는 속성으로, readonly, disabled가 있다
+	 -->
+	 <!-- 
+		 input태그의 속성
+		 type : input태그의 종류를 선택하는 속성
+		 tabindex : 탭 키를 눌렀을 때 활성화 되는 순서
+		 readonly : 읽기전용
+		 disalbed : 비활성화
+		 value : input태그의 값을 지정
+		 placeholder : input태그의 미리보기 문자열 지정
+		 name : 서버로 데이터를 전송할 때 전송한 값의 변수명
+		 value와 placeholder의 차이 : placeholder는 input태그의 값이 들어있으면
+		 안보임
+	  -->
+	<form action="">
+		<input type="text" name="a" tabindex="1" readonly="true">
+		<input type="text" name="b" tabindex="3" readonly placeholder="읽기전용">
+		<input type="text" name="c" tabindex="2" disabled>
+		<input type="text" name="d" tabindex="4" value="123" placeholder="테스트">
+		<input type="submit" value="전송">
+	</form>
+	
+	<form action="">
+		<!-- checked : checkbox나 radio에서 사용하며, 있는 경우 체크된
+		 상태로 시작 -->
+		<input type="checkbox" name="" checked>선택1
+		<input type="radio" name="" checked>선택2
+	</form>
+</body>
+</html>

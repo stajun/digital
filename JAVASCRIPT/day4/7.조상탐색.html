@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>조상 탐색예제</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<div class="box">
+		<ul class="menu">
+			<li class="main-menu"><a href="#" class="menu-link">메뉴1</a></li>
+		</ul>
+	</div>
+	<style>
+		*{
+			padding: 10px;
+		}
+	</style>
+	<script>
+		/*
+		- 탐색 : 요소를 기준으로 특정 요소를 찾는 것
+		- 조상 탐색 : 요소를 기준으로 조상들 중 조건을 만족하는 조상을 탐색
+		- 자손 탐색 : 요소를 기준으로 자손들 중 조건을 만족하는 자손을 탐색
+		- 형제 탐색 : 요소를 기준으로 형제들 중 조건을 만족하는 형제를 탐색
+
+		-조상탐색
+		- parent() : 부모를 선택
+		- parents(): 모든 조상을 선택
+		- parents('선택자') : 선택자와 일치하는 조상을 선택
+		- parentsUntil('선택자') : 조상들 중 선택자와 일치하기 전까지의 조상을 선택
+		*/
+		$(function(){
+			//a태그에 왼쪽 테드리 추가
+			$('.menu-link').css('border-left','1px solid red');
+			//a태그 부모에 왼쪽 테두리 추가
+			$('.menu-link').parent().css('border-left','1px solid black');
+			//a태그 조상들에 위쪽 테두리 추가
+			$('.menu-link').parents().css('border-top','1px solid black');
+			//a태그 조상들 중 ul 태그에 오른쪽 테두리 추가
+			$('.menu-link').parents('ul').css('border-right','1px solid blue');
+			//a태그 조상들 중 .box 전 조상들에게 아래 테두리 추가
+			$('.menu-link').parentsUntil('.box').css('border-bottom','1px solid green');
+		})
+	</script>
+</body>
+</html>

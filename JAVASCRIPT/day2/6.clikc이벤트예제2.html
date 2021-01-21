@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>클릭 이벤트 예제2</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<button id="up">UP</button>
+	<button id="down">DOWN</button>
+	<script>
+		/* 
+		- up버튼과 down 버튼을 생성
+		- up버튼을 누르면 숫자가 현재 숫자부터 1씩 증가하여 콘솔에 출력
+		- down버튼을 누르면 숫자가 현재 숫자에서 1씩 감소하여 콘솔에 출력
+		- 현재 숫자의 초기값은 1
+		- 최대 숫자는 6
+		- 최소 숫자는 1
+		- 1에서 down버튼을 클릭하면 0이 아닌 6이 되게 함
+		- 6에서 up버튼을 클릭하면 7이 아닌 1이 되게 함
+		*/
+		$(function(){
+			var cnt = 1;
+			var max = 6;
+			var min = 1;
+			$('#up').click(function(){
+				if(++cnt == max + 1){
+					cnt = min;
+				}
+				console.log(cnt);
+			});
+			$('#down').click(function(){
+				if(--cnt == min - 1){
+					cnt = max;
+				}
+				console.log(cnt);
+			});
+		});
+	</script>
+</body>
+</html>

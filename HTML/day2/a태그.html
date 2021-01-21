@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>a태그</title>
+</head>
+<body>
+	<!-- 
+		a태그 
+		 - 다른 페이지로 이동하게 하는 태그, 다운로드 가능하게 하는 태그
+		 - href 속성 
+			 - 이동할 url, 값이 없으면 현재 페이지
+			 - 값이 //나 http://로 시작되면 url로 인식, 없으면 파일로 인식을 함
+			 - 값에 tel: 이 나오면 핸드폰번호로 연결
+			 - 값에 mailto: 가 나오면 이메일로 연결
+		 - 쌍태그로 태그 안에 있는 글자를 클릭하면 이동하게 함
+		 - target 속성
+			 - _self : 기본값으로, 현재 화면에서 링크를 새로 염
+			 - _blank: 다른 창에서 링크를 새로 염
+			 - _parent : 부모 창에서 링크를 새로 염. 부모가 없으면 _self와 같음
+			 - _top : 최고 조상에서 링크를 새로 염. 부모가 없으면 _self와 같음
+		 - download 속성
+			 - download 속성을 추가하면 링크로 이동하는 것이 아니라 해당 파일을 
+				 다운로드 함
+			 - download를 이용하려면 href에 파일명을 입력해야한다.
+	 -->
+	<!-- 현재 a태그.html이 있는 파일에서 naver.com이라는 파일을 연결 -->
+	<a href="naver.com">네이버</a>
+	<br>
+	<!-- 현재창에서 url naver.com으로 이동 -->
+	<a href="http://naver.com" target="_self">네이버</a>
+	<br>
+	<!-- 새창에서 url naver.com으로 이동 -->
+	<a href="//naver.com" target="_blank">네이버</a>
+	<br>
+	<!-- select태그.html을 다운로드 함 -->
+	<a href="select태그.html" download>다운로드</a>
+	<br>
+	<!-- select태그.html로 이동 -->
+	<a href="select태그.html">select 태그 예제</a>
+	<br>
+	<!-- 대한민국 010-1234-5678로 전화 연결 -->
+	<a href="tel:+821012345678">전화로 문의하기</a>
+	<br>
+	<!-- stajun@naver.com으로 메일을 쓰도록 연결 -->
+	<a href="mailto:stajun@naver.com">메일로 문의하기</a>
+	<br>
+</body>
+</html>

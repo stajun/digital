@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>css메소드 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box{
+			background-color: yellow;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">노랑</div>
+	<div class="output"></div>
+	<script>
+		/*
+		- $('선택자').css('속성명') 
+			- 해당 요소의 속성 값을 가져오는 메소드
+		- $('선택자').css('속성명', 속성값) 
+			- 해당 요소의 속성값을 설정하는 메소드
+		- $('선택자').css({'속성명1':'속성값1', '속성명2':'속성값2'})
+			- 해당 요소의 속성값을 설정하는 메소드
+		- css()메소드를 이용하여 스타일을 변경하면 해당 요소의 style 속성에 반영
+		*/
+		var bgColor = $('.box').css('background-color');
+		var fSize = $('.box').css('font-size');
+		$('.output').html(bgColor+","+fSize);
+		$('.box').css('text-align','center');
+		$('.box').css({'font-weight':'bold', 'color':'red'});
+	</script>
+</body>
+</html>

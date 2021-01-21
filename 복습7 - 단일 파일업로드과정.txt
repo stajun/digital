@@ -1,0 +1,114 @@
+단일 첨부파일 등록 기능
+
+- pom.xml
+  - 파일업로드 기능을 위해 의존성 추가
+
+- servlet-context.xml
+  - 파일 업로드 설정 추가
+
+- kr.green.test.utils 패키지에 UploadFileUtils 클래스 추가
+
+- Controller
+  - 멤버 변수
+    - uploadPath로 업로드된 파일을 저장할 경로를 지정하는 변수 
+      선언(D:\\JAVA_JIK\\upfile)
+  - /board/register post
+    - 화면에서 첨부파일을 전달받음(매개변수)
+      - 첨부파일은 MultipartFile 클래스
+    - 게시글을 등록(Mapper만 수정이 필요)
+      - insert로 게시글을 등록하고 등록된 게시글 번호를 받아오도록
+        Mapper를 수정해야함
+    - 첨부파일이 있으면 업로드를 하고, 업로드된 파일명을
+      문자열 객체 저장(UploadFileUtils클래스의 메소드를 호출)
+    - 서비스에게 게시글 번호, 원래 파일명, 업로드된 파일명을 주고
+      files 테이블에 등록하라고 요청
+  
+- ServiceImp
+  - 다오에게 게시글 번호, 원래 파일명, 업로드된 파일명을 주고 
+    files 테이블에 등록하라고 요청
+
+- Mapper
+  - insertBoard에 
+    useGeneratedKeys="true"와
+    keyProperty="board.num"를
+    추가
+
+  - files테이블에 게시글 번호, 원래 파일명, 업로드된 파일열을 
+    이용하여 추가(insert)하는 쿼리문 작성
+
+- /board/register.jsp
+  - form태그에 enctype="multipart/form-data"을 추가
+  - 첨부파일을 추가할수 있는 input태그를 추가
+
+단일 첨부파일 확인
+
+- FileVo
+  - 멤버변수 추가
+    - num : 기본키
+    - boardNum : 게시글번호
+    - oriFilename : 원래 파일명
+    - filename : 경로와 uuid가 포함된 파일명
+  - getter/setter 추가
+  - toString() 추가
+
+- Controller
+  - /board/detail
+    - 게시글 정보를 가져온 후(이미 있는 코드), 
+      서비스에게 가져온 게시글 번호를 알려주면서 해당 게시글
+      번호와 일치하는 첨부파일을 가져오라고 요청하고 가져온
+      첨부파일을 FileVo에 저장
+    - 가져온 첨부파일을 화면에 전송
+
+- ServiceImp
+  - 다오에게 게시글 번호를 주고, 해당 게시글과 일치하는 첨부파일
+    을 요청
+
+- Mapper
+  - 게시글 번호와 일치하는 첨부파일을 검색하는 쿼리문 생성
+
+- /board/detail.jsp
+  - c:if를 이용하여 첨부파일이 있으면 첨부파일 목록을 출력하는
+    코드를 작성(a태그를 이용, 링크는 같이)
+
+첨부파일 다운로드
+
+- /board/detail.jsp
+  - 첨부파일 링크를 수정 : 
+    /board/download?filename=/2021/01/15/uuid_파일명
+
+- Controller
+  - /board/download 메소드 추가
+    - 샘풀코드 복붙
+    - 컨트롤러 메소드의 매개변수 이름과 /board/detail.jsp의
+      url에 있는 변수명을 일치
+      /board/detail.jsp에 경로를 /board/download?filename=...
+      으로 했으면 컨트롤러에 매개변수명을 filename으로 해야함
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

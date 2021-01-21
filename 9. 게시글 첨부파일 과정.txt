@@ -1,0 +1,44 @@
+
+- 첨부파일 : 게시글의 첨부파일을 관리, file 테이블 추가
+  - file테이블 생성 : 어떤 게시글에 첨부파일이 들어있는지
+    알 수 있는 테이블
+    - num : 기본키, 자동증가 ,int, PK, NN, AI
+    - boardNum : 게시글 번호, int, NN, 외래키 지정
+    - oriFilename : 업로드한 파일의 원본이름, varchar(255), NN
+    - filename : 실제 서버에 업로드된 파일이름, varchar(255), NN
+
+예시 : 1번 게시글에 첨부파일 A,B를 등록
+num	boardNum	oriFilename	filename
+1	1		A		/2021/1/12/xxx_A
+2	1		B		yyy_B
+이후 작업은 문서 참조
+  - 의존성 추가
+  - servlet-context.xml에 업로드 설정
+  - /board/register.jsp에 form태그 옆에 enctype 설정하고,
+    첨부파일 추가할 수 있는 input태그 추가
+  - UploadFileUtils 클래스 추가
+C:\Users\Administrator\Downloads\upload
+\2021\01\12
+paths[0] : \2021
+paths[1] : \2021\01
+paths[2] : \2021\01\12
+/2021/01/12/uuid_A
+
+D:\JAVA_JIK\upfile
+
+
+
+
+- 좋아요 : likes 테이블을 추가, ajax를 이용
+
+
+
+
+
+
+
+
+
+
+
+

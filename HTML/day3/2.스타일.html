@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>스타일 적용 방법</title>
+	<!-- 스타일 적용 방법1 : style 태그 이용하기(head태그 안에서 작성) -->
+	<style>
+		#input1{
+			height: 50px;
+		}
+	</style>
+	<!-- 
+		스타일 적용 방법3 : link 태그 이용하기(head태그 안에서 작성)
+		- 이미 만들어져있는 css파일을 가져옴
+	 -->
+	<link rel="stylesheet" href="스타일.css">
+</head>
+<body>
+	<input type="text" id="input1"> <br>
+	<!-- 
+		스타일 적용 방법2 : 각 태그의 style 속성을 이용
+		- 비추천
+		- 해당 요소만 적용
+		- 재사용이 낮음
+		- 우선순위가 높음
+	 -->
+	<input type="text" id="input2" style="width: 200px;"> <br>
+	<input type="text" id="input3"> <br>
+</body>
+</html>

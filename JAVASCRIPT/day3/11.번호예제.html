@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>번호 예제</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<div class="box">
+		<span class="current-page">1</span>/6
+		<button class="btn-prev">이전</button>
+		<button class="btn-next">이후</button>
+	</div>
+	<script>
+		/*
+		- 이전 버튼을 클릭하면 버튼이 감소, 1에서 감소를 누르면 6
+		- 이후 버튼을 클릭하면 버튼이 증가, 6에서 증가를 누르면 1
+		- 해당 숫자가 화면에 바뀌도록 작성
+		*/
+		$(function(){
+			$('.btn-next').click(function(){
+				var currentPage = $('.current-page').text();
+				currentPage = page(++currentPage);
+				$('.current-page').text(currentPage);
+			})
+			$('.btn-prev').click(function(){
+				var currentPage = $('.current-page').text();
+				currentPage = page(--currentPage);
+				$('.current-page').text(currentPage);
+			})
+		});
+		function page(page){
+			var min = 1, max = 6;
+			if(page < min){
+				return max;
+			}
+			if(page > max){
+				return min;
+			}
+			return page;
+		}
+	</script>
+</body>
+</html>

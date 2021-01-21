@@ -1,0 +1,103 @@
+ CRUD : Create, Read, Update, Delete
+
+ create : 테이블/DB를 생성
+ drop : 테이블/DB를 삭제
+ insert : 테이블의 행을 추가
+ select : 검색(테이블 등 다양한 정보)
+
+2020학번 학생들 중 각 과의 학생수를 출력하도록
+쿼리문을 작성하세요.
+
+select 속성1, 속성2, .. from 테이블명 
+	where 조건식
+	order by 속성1 정렬기준, 속성2 정렬기준
+
+select 속성1, 속성2, ... from 테이블명 limit 시작번지,갯수;
+
+컴퓨터과 학생수
+
+ update 테이블명
+	set 
+		속성1 = 값1,
+		속성2 = 값2,
+		...
+	where
+		조건식;
+2019123002 학번 학생 이름을 임꺽정으로 수정하세요.
+
+전공이 컴퓨터인 학생들의 전공을 컴퓨터과로 수정하세요.
+
+
+ test03 테이블에 age라는 속성을 추가하고 학번에 맞게 나이를 저장하세요
+
+
+
+ alter table 테이블명 change column 속성명 속성명 속성설정;
+
+create table if not exists product(
+num int not null auto_increment,
+type_a varchar(20) default '',
+type_b varchar(20) default '',
+name varchar(20) default '',
+price int default 0,
+amount int default 0,
+sale_amount int default 0,
+register_date date ,
+primary key(num));
+
+insert into product(type_a, type_b, name, price, amount, sale_amount, register_date)
+values('티셔츠', '긴소매','폴라 티셔츠', 15000, 34, 100, '2020-10-15'),
+('티셔츠','반소매','순면라운드 반팔티',15900,10,153,'2020-09-15'),
+('티셔츠',	'민소매',	'에이 나시',9000,33,33,'2020-11-10'),
+('패션운동복','트레이닝상의','피트니스상의',30000,34,55,'2020-11-05'),
+('패션운동복','트레이닝하의','피트니스하의',50000,55,34,'2020-11-06'),
+('아우터',	'재킷','양면 롱 후리스 자켓',23300,100,42,	'2020-11-05'),
+('아우터',	'코트','양털 겨울 코트',50000,50,30,'2020-10-31'),
+('아우터',	'패딩','롱 패딩 점퍼',	47400,10,	45,'2020-11-01');
+
+상품을 최신순(제품 등록일)으로 검색하도록 쿼리문을 작성하세요.
+
+티셔츠 상품들의 평균 가격은?
+
+가격이 16000원 이상인 제품에 한하여 10프로 할인  쿠폰을 적용시킬 수 
+있다. 이때 쿠폰 적용이 가능한 상품들은?
+
+create table if not exists  buy(
+num int not null auto_increment,
+customer varchar(20) not null default '',
+product_name varchar(20) not null default '',
+price int default 0,
+amount int default 0,
+buy_date date,
+primary key(num));
+
+홍길동 손님이 폴라 티셔츠를 3개 지금 구매하였다. 이때 구매 정보를 buy
+테이블에 추가하는 쿼리를 작성하고 데이터를 추가하세요.
+
+홍길동 에이나시 2개 구매
+
+insert into buy(customer, product_name, price, amount, buy_date)
+values('홍길동','폴라 티셔츠', 15000, 3, '2020-11-11');
+
+insert into buy(customer, product_name, price, amount, buy_date)
+select '홍길동', name, price, 3, '2020-11-11' from product where name ='폴라 티셔츠';
+
+insert into buy(customer, product_name, price, amount, buy_date)
+select '홍길동', name, price, 2, '2020-11-11' from product where name ='에이 나시';
+
+sale_amount를 전부 0으로 만들고, amount를 전부 100으로 만들고,
+buy 테이블에 있는 제품 수량만큼 sale_amount에 추가
+amount에 뺌
+
+update product set amount = 100, sale_amount = 0;
+ update product set amount = amount - 6, sale_amount = sale_amount + 6
+where name = '폴라 티셔츠';
+ update product set amount = amount - 2, sale_amount = sale_amount + 2
+where name = '에이 나시';
+
+
+
+
+
+
+

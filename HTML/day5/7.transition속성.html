@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>transition 속성</title>
+	<style>
+		/* 
+		- transition 
+			- 다른 속성 값이 변화할 때 서서히 변화하여 애니메이션 효과를 생성하는 속성 
+			- transition : 속성명 전환시간;
+			- 해당 속성 값이 변화하면 전환시간동안 서서히 변화
+		*/
+		.box{
+			/* font-size의 값이 변화하면 3초에 걸쳐 변화 */
+			transition: font-size 3s;
+		}
+		.box:hover{
+			font-size: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">안녕</div>
+</body>
+</html>

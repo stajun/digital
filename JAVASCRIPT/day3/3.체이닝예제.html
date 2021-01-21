@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>체이닝 예제</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.box{
+			background-color: yellow;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<button>버튼</button>
+	<div class="box"></div>
+	<script>
+		$(function(){
+			/* 체이닝은 요소를 여러 메소드로 연달아 호출하는 방법 */
+			$('button').click(function(){
+				$('.box').slideUp().slideDown();
+			})
+		});
+	</script>
+</body>
+</html>

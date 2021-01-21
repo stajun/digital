@@ -1,0 +1,52 @@
+페이지네이션 기능
+
+- Criteria 클래스 추가
+
+- PageMaker 클래스 추가
+  - 현재페이지정보(Criteria cri), displayPageNum, 
+    전체 게시글 수가 주어졌을때 객체를 생성하는 생성자 추가
+
+- BoardController
+ - 리퀘스트 맵핑이 /board/list인 메소드에서 작업
+  - 서비스에게 전체 게시글 갯수를 알려 달라고 요청하여 변수에 저장
+    (int totalCount)
+  - 한 페이지네이션에서 보여줄 최대 페이지 수를 임의로 선정하여
+    변수에 저장
+    (int displayPageNum = 10)
+  - 현재 페이지정보를 화면에서 전달받아옴(매개변수)
+  - 현재페이지정보, displayPageNum, 전체 게시글 수를 이용하여
+    새로운 PageMaker 객체를 생성
+  - 생성된 PageMaker를 화면에 전송
+  - (수정) 전체 게시글을 가져오는 서비스의 getBoardList()를
+    현재 페이지글을 가져오는 getBoardList(cri)로 수정
+
+- BoardServiceImp
+  - getTotalCount()
+    - 다오에게 전체 게시글 수를 요청
+  - (수정)다오의 getBoardList()를 getBoardList(cri)로 수정
+
+- BoardMapper
+  - 전체 게시글 수를 알려주는 쿼리문 생성
+  - (수정)전체 게시글이 아니라 현재 페이지에 맞는 게시글을
+    가져오도록 limit를 이용하여 쿼리를 수정
+
+- /board/list.jsp
+  - 페이지 네이션 코드를 추가
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

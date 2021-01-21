@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>폰트속성</title>
+	<style>
+		/* 
+		- 폰트 지정 : font-family
+		 - 지정하려는 폰트를 ,로 나열
+		 - 한글 폰트인 경우 한글이름과 영어 이름을 같이 사용
+		 - 마지막 폰트는 기본형으로 지정
+		 - 폰트명에 공백이 없는 경우 "" 생략 가능
+		- 폰트 크기 : font-size
+		- 폰트 스타일(이탤릭체) : font-style
+		- 폰트 굵기 : font-weight
+		 - 100~900사이의 값
+		 - 100단위로 지정
+		 - 700은 bold로 지정
+		- 폰트 : font => 위 속성들을 한번에 적용하는 속성
+		 - font : font-style font-weight font-size font-family 순으로 지정
+		 - font-style과 font-weight는 생략 가능
+		 */
+		body{
+			/* Arial 폰트가 있으면 적용, 없으면 Times New Roman 폰트를 적용,
+			해당 폰트도 없으면 유사한 Serif 폰트 적용 */
+			/* font-family: Arial, "Times New Roman", Serif; */
+			font-family: "맑은 고딕", "Malgun Gothic", serif;
+			font-size: 20px;
+			font-style: italic;
+			font-weight: bold;
+			font: italic bold 20px "맑은 고딕", "Malgun Gothic", serif;
+		}
+	</style>
+</head>
+<body>
+	안녕하세요.
+</body>
+</html>

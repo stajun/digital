@@ -1,0 +1,109 @@
+controller > service 	   >  dao
+                 *Service(인터페이스)     *Dao(인터페이스) 
+	   *ServiceImp(클래스)     *Mapper.xml
+UserService
+
+localshot:8080/test/login
+- 위 url을 입력하면 로그인 화면이 나오게 하는 과정 =>GET
+1. Controller에 작업
+ - 메소드 추가 
+  - RequestMapping의 값이 /login인 메소드 추가
+  - method는 화면이기 때문에 GET
+  - 화면 파일을 지정 => 어떤 jsp와 연결할건지를 지정
+    /main/login
+2. jsp파일 추가
+ - main폴더 밑에 login.jsp 파일 추가
+ - 로그인 화면 구현
+
+login화면에서 아이디와 비밀번호를 입력하여 로그인 하는 과정
+1. form태그에 속성 정보를 확인 또는 수정한다
+ - 로그인 정보는 다른 사람들이 url을 통해 확인하면 안되기 때문에 
+   method를 post로 한다
+ - 입력한 정보를 보낼 url을 action을 통해 지정한다
+
+2. jsp에서 보낸 데이터를 처리하기 위한 Controller작업
+ - 메소드 추가 
+  - RequestMapping의 값이 /login인 메소드 추가
+  - method는 POST
+  - 화면에서 보내준 username와 password의 값을 받아옴 
+    => 매개변수로
+
+3. 컨트롤러에서 서비스에게 일을 시킴 => 메소드로 일을 시킴
+ - username과 password를 넘겨주고, 해당 정보가 회원 정보인지
+   확인하는 작업을 시킴
+ - 확인해서 회원이면 true를 회원이 아니면 false를 반환 시킴
+
+4. 서비스가 Dao에게 일을 시킴 => 메소드
+ - Dao에게 id가 일치하는 회원 정보를 달라고 시킴
+ - 서비스는 Dao 보내준 회원 정보를 이용하여 회원인지 아닌지
+   판별
+
+5. 컨트롤러에서 회원이면 메인페이지로, 아니면 login으로 이동
+
+localhost:8080/test/signup
+- 위 url을 입력하면 회원가입 화면이 나오게 하는 과정 =>GET
+1. Controller에 작업
+ - 메소드 추가 
+  - RequestMapping의 값이 /signup인 메소드 추가
+  - method는 화면이기 때문에 GET
+  - 화면 파일을 지정 => 어떤 jsp와 연결할건지를 지정
+    /main/signup
+2. jsp파일 추가
+ - main폴더 밑에 signup.jsp 파일 추가
+ - 회원가입 화면 구현
+
+signup 화면에서 회원 정보를 입력하여 회원가입 하는 과정
+1. form태그에 속성 정보를 확인 또는 수정한다
+ - 회원가입 정보는 다른 사람들이 url을 통해 확인하면 안되기 때문에 
+   method를 post로 한다
+ - 입력한 정보를 보낼 url을 action을 통해 지정한다
+
+2. jsp에서 보낸 데이터를 처리하기 위한 Controller작업
+ - 메소드 추가 
+  - RequestMapping의 값이 /signup인 메소드 추가
+  - method는 POST
+  - 화면에서 보내준 회원 정보를 UserVo에 담는다
+    => 매개변수로
+    =>UserVo의 멤버 변수 이름과 화면에서 input태그의 name을
+        일치시켜야한다
+
+3. 컨트롤러에서 서비스에게 일을 시킴 => 메소드로 일을 시킴
+ - 컨트롤러는 서비스에게 회원 정보를 전달하고, 서비스는
+   전달 받은 회원정보를 통해 회원 가입을 진행하고, 진행에 성공하면
+   true를, 실패하면 false를 반환시킴
+
+4. 서비스가 Dao에게 일을 시킴 => 메소드
+ - Dao에게 id를 알려주면서 id와 일치하는 회원 정보를 달라고 시킴
+   (아이디 중복)
+ - Dao가 준 회원 정보가 있으면 회원가입을 하지않고, false를 반환
+   =>회원정보가 null이 아니면 (회원가입을 하지않고) false를 반환
+
+ - 서비스는 Dao에게 회원 정보 보내주고 회원가입을 진행, 
+
+5. Mapper는 Dao가 넘겨준 정보를 이용하여 회원가입을 진행
+ - insert문을 이용
+
+6. 컨트롤러에서 회원 가입에 성공하면 메인페이지로, 
+   실패하면 signup으로 이동
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

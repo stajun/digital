@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>메뉴2-햄버거메뉴</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,ol{
+			list-style: none;
+		}
+		.menu{
+			display: none;
+		}
+		nav{
+			height: 52px;
+			position: relative;
+			border: 1px solid gray;
+			box-sizing: border-box;
+		}
+		.ham-menu{
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			width: 50px;
+			border: 1px solid whitesmoke;
+			background-color: whitesmoke;
+			cursor: pointer;
+		}
+		.ham-menu:focus{
+			border: 1px solid gray;
+		}
+	</style>
+	<script src="https://kit.fontawesome.com/b1e3c8f87d.js" 
+		crossorigin="anonymous"></script>
+</head>
+<body>
+	<nav>
+		<button class="ham-menu"><i class="fas fa-bars"></i></button>
+		<ul class="menu">
+			<li><a href="#">메뉴1</a></li>
+			<li><a href="#">메뉴2</a></li>
+			<li><a href="#">메뉴3</a></li>
+		</ul>
+	</nav>
+</body>
+</html>

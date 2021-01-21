@@ -1,0 +1,38 @@
+게시판 추천/비추천 기능2 
+ - 추천/비추천한 게시글 상세에 추천 버튼 색상 변경
+- BoardController
+  - /board/detail
+   1- HttpServletRequest 매개변수 추가(request)
+      =>세션에서 로그인 한 유저정보 가져오기위해
+   2- 유저서비스에게 request정보를 주면서 회원 정보를 요청
+   3- 가져온 회원정보 콘솔에 출력
+   6- 가져온 회원정보의 아이디와 게시글 번호를 이용하여 
+       LikeVo 객체를 생성
+   7- 보드서비스에게 생성된 LikeVo 객체를 알려주면서 
+       추천정보(LikeVo)를 요청(getLike)
+   9- 요청한 추천정보를 콘솔에 출력
+  10- 추천 정보를 화면에 전송
+
+- LikeVo
+  4- 기본 생성자 추가
+  5- 매개변수가 id, boardNum가 주어졌을 때 생성자 추가
+
+- /board/detail.jsp
+  11- 서버에서 전송한 추천 정보를 화면에 출력
+  12- 추천버튼 btn-outline-xxx클래스에 수정 작업
+        - c:if로 추천정보가 없거나
+          추천 정보의 up값이 1이 아니면 outline-를 추가
+  13- 비추천버튼 btn-outline-xxx클래스에 수정 작업
+        - c:if로 추천 정보가 없거나
+          추천 정보의 up값이 -1이 아니면 outline-를 추가
+
+- BoardServiceImp
+ 8- getLike
+    - 다오에게 LikeVo객체를 알려주면서 DB에 일치하는 LikeVo를
+      요청
+
+
+
+
+
+

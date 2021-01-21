@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>add 예제</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<ol>
+		<li>
+			<a href="#">
+				<img width="100" src="http://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg" alt="">
+			</a>
+		</li>
+	</ol>
+	<button class="append-btn">추가(append)</button>
+	<button class="prepend-btn">추가(prepend)</button>
+	<button class="after-btn">추가(after)</button>
+	<button class="before-btn">추가(before)</button>
+	<script>
+		/*
+		- $('선택자').append('html코드') 
+			- 해당 요소 안 마지막 자식요소 다음에 html코드를 추가
+		- $('선택자').prepend('html코드')
+			- 해당 요소 안 처음 자식요소 앞에 html코드를 추가
+		- $('선택자').after('html코드');
+			- 해당 요소 다음에 html 코드를 추가
+		- $('선택자').before('html코드');
+			- 해당 요소 앞에 html 코드를 추가
+		*/
+		$(function(){
+			$('.append-btn').click(function(){
+				var str = '';
+				str += '<li>';
+				str += '<a href="#">';
+				str += '<img width="100" src="https://t1.daumcdn.net/cfile/tistory/99A8F7385C00D4A416" alt="">';
+				str += '</a>';
+				str += '</li>';
+				$('ol').append(str);
+			})
+			$('.prepend-btn').click(function(){
+				var str = '';
+				str += '<li>';
+				str += '<a href="#">';
+				str += '<img width="100" src="https://images.mypetlife.co.kr/content/uploads/2019/09/06150205/cat-baby-4208578_1920.jpg" alt="">';
+				str += '</a>';
+				str += '</li>';
+				$('ol').prepend(str);
+			})
+			$('.after-btn').click(function(){
+				var str = '<a href="//naver.com" target="_blank">네이버</a>';
+				$('ol').after(str);
+			})
+			$('.before-btn').click(function(){
+				var str = '<a href="//daum.com" target="_blank">다음</a>';
+				$('ol').before(str);
+			})
+		})
+	</script>
+</body>
+</html>

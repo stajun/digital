@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>애니메이트 예제</title>
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+	/>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.head{
+			margin: 100px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<button class="bounce-btn">bounce</button>
+	<button class="backInDown-btn">backInDown</button>
+	<h1 class="head animate__animated animate__bounce">Hello</h1>
+	<script>
+		$(function(){
+			$('.head').hover(function(){
+				$(this).toggleClass('animate__infinite')
+			})
+			$('.bounce-btn').click(function(){
+				$('.head').attr('class','head animate__animated animate__bounce');
+			})
+			$('.backInDown-btn').click(function(){
+				$('.head').attr('class','head animate__animated animate__backInDown');
+			})
+			$('.head').on('animationend',function(){
+				$('.head').attr('class','head');
+			})
+		})
+	</script>
+</body>
+</html>

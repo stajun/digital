@@ -1,0 +1,167 @@
+E - R 다이어그램
+
+수강관리 프로그램
+
+학생(student)
+ - 학번(std_num) : 숫자 =>2005160001, 기본키
+ - 이름(std_name) : 문자열 20
+ - 학과(std_major) : 문자열 20
+ - 학기(std_ternm) : 숫자
+ - 이수학점(std_com_point) : 숫자
+강의(course)
+ - 과목코드(co_num) : 문자열 20
+ - 과목명(co_name) : 문자열 20
+ - 담당 교수(co_professor) : 문자열 20
+ - 학점(co_point) : 숫자
+ - 시간(co_time) : 숫자=>정수
+ - 시간표(co_timetable) : 문자열 : 20
+수강(attend)
+ - 수강번호(at_num) : 숫자 , 자동증가
+ - 학번(at_st_num) : 숫자
+ - 강의코드(at_co_num) : 문자열 20
+ - 기말(at_final) : 숫자
+ - 중간(at_mid) : 숫자
+ - 출석(at_attend) : 숫자
+ - 과제(at_hw) : 숫자
+ - 재수강 여부(at_repetition) : 문자 1
+ - 년도(at_year) : 숫자
+ - 학기(at_term) : 문자열 4
+ - 학점(at_score) : 문자열 4
+
+
+필요한 테이블을 엔티티 객체
+
+학생, 과목을 엔티티로 만듬
+
+학생은 학번을 가지고 있다
+학생은 이름을 가지고 있다
+학생은 어느 학과에 속해 있다
+학생은 학기를 이수하였다.
+학생은 총 몇학점을 이수하였다.
+
+강의은 과목코드를 가지고 있다
+강의은 과목명을 가지고 있다
+강의은 담당교수를 배정한다.
+강의은 학점을 가지고 있다.
+강의은 시간을 가지고 있다.
+강의은 시간표가 있다.
+강의코드는 년도학기코드로
+중복되지 않도록 작성된다.
+
+학생은 강의를 수강한다
+학생 1명은 여러 강의를 들을 수 있다
+한 강의에는 여러명이 올수있다.
+
+
+create table if not exists student(
+std_num int not null,
+std_name varchar(20),
+std_major varchar(20),
+std_term int default 0,
+std_com_point int default 0,
+primary key(std_num));
+
+create table if not exists course(
+co_num varchar(20) not null,
+co_name varchar(20),
+co_professor varchar(20),
+co_point int default 0,
+co_time int default 0,
+co_timetable varchar(20),
+primary key(co_num));
+
+create table if not exists attend(
+at_num int not null auto_increment,
+at_st_num int,
+at_co_num varchar(20),
+at_final int default 0,
+at_mid int default 0,
+at_attend int default 0,
+at_hw int default 0,
+at_score varchar(4),
+at_repetition varchar(1) default 'N',
+at_year int ,
+at_term varchar(4),
+primary key(at_num));
+
+외래키 지정
+alter table 테이블명 add [constraint 제약조건이름]
+foreign key(테이블명의 속성명)
+references 상대테이블명(속성명)
+
+alter table attend add constraint at_st_num
+foreign key(at_st_num)
+references student(std_num);
+
+alter table attend add constraint at_co_num
+foreign key(at_co_num)
+references course(co_num);
+
+
+alter table 테이블명 change column 컬럼명 컬럼명 자료형 제약조건;
+alter table 테이블명 add 속성명 자료형 제약조건;
+alter table course add at_co_num varchar(20);
+
+외래키 특징
+ - 외래키의 값은 null이거나 상대 테이블과 연결된 속성의 값만 올수 있다.
+
+join : 두개 이상의 테이블을 연결하여 검색할 때 사용
+
+테이블A의 외래키로 테이블 B의 기본키가 지정되어 있는 상황
+select 속성1, 속성2, .. 속성n 
+	from 테이블명A 
+		join 테이블명B 
+		on 테이블명A.외래키명 = 테이블명B.기본키명;
+
+강의 코드가 2020201MSC001 인 수업을 듣는 컴퓨터공학과 학생들 이름만 검색하는 쿼리문을 작성하세요.
+
+select std_name from attend
+	join student
+    on at_st_num = std_num where at_co_num = '2020201MSC001' and std_major='컴퓨터공학';
+
+-- 신입생들의 평균 이수학점을 출력하는 쿼리문
+SELECT avg(std_com_point) as '신입생 평균 이수 학점' 
+	FROM student where std_num like '2020%';
+
+-- 강의명이 기초전기이고 담당 교수님이 이순신인 강의를 듣는 학생들 이름을 출력하세요.
+select std_name from attend
+	join student
+    on std_num = at_st_num
+    join course
+    on co_num = at_co_num
+    where co_name = '기초전기' and co_professor = '이순신';
+
+-- 학생 성적에 따라 학점을 출력하는 쿼리문
+-- 강감찬 기초전기 A
+-- A : 기말 + 중간 + 출석 + 과제 90이상
+-- B : 기말 + 중간 + 출석 + 과제 80이상
+select std_name, co_name, 
+	case when at_final + at_mid + at_attend + at_hw >= 90
+		then 'A'
+	when at_final + at_mid + at_attend + at_hw >= 80
+		then 'B'
+	when at_final + at_mid + at_attend + at_hw >= 70
+		then 'C'
+	when at_final + at_mid + at_attend + at_hw >= 60
+		then 'D'
+	else 'F' end as '성적' from attend
+    join student	on at_st_num = std_num
+    join course	    on co_num = at_co_num;
+    
+
+-- 학생 성적에 따라 학점을 attend 테이블의 at_score에 저장하는 쿼리문
+update attend set at_score = 
+	case when at_final + at_mid + at_attend + at_hw >= 90
+		then 'A'
+	when at_final + at_mid + at_attend + at_hw >= 80
+		then 'B'
+	when at_final + at_mid + at_attend + at_hw >= 70
+		then 'C'
+	when at_final + at_mid + at_attend + at_hw >= 60
+		then 'D'
+	else 'F' end;
+select * from attend;
+
+
+
+

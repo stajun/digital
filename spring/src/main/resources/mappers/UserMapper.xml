@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.green.spring.dao.UserDao">
+  <select id="getEmail" resultType="String">
+    select email from user where id = #{id}
+  </select>
+  <select id="getName" resultType="String">
+    select name from user where id = #{id}
+  </select>
+  <select id="getUser" resultType="kr.green.spring.vo.UserVo">
+    select * from user where id = #{id}
+  </select>
+  <select id="getAge" resultType="int">
+    select age from user where id = #{id}
+  </select>
+  <select id="getAllUser" resultType="kr.green.spring.vo.UserVo">
+    select * from user
+  </select>
+  <insert id="insertUser" parameterType="kr.green.spring.vo.UserVo">
+  	insert into user(id,pw,name,age,home,email)
+  		values(#{user.id}, #{user.pw}, #{user.name}, #{user.age}, #{user.home}, #{user.email})
+  </insert>
+  <update id="updateAuthor">
+  	update user set author = #{user.author} 
+  		where id = #{user.id}
+  </update>
+  <update id="updateUser">
+  	update user set
+  		pw = #{user.pw},
+  		age = #{user.age},
+  		name = #{user.name},
+  		email = #{user.email},
+  		home = #{user.home}
+  		where id = #{user.id}
+  </update>
+</mapper>
+
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fade 예제</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.btn1,.btn2,.btn3,.btn4{
+			width: 100%;
+			height: 50px;
+			display: block;
+			background-color: transparent;
+			border: 1px solid black;
+			cursor: pointer;
+			font-size: 20px;
+		}
+		.box{
+			border: 1px solid #000;
+			border-top: none;
+			background-color: yellow;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn1">fadeOut</button>
+	<button class="btn2">fadeIn</button>
+	<button class="btn3">fadeToggle</button>
+	<button class="btn4">fadeTo 0.3</button>
+	<div class="box"></div>
+	<script>
+		$(function(){
+			/*
+			- fade는 투명도를 0으로 서서히 변경한 후 마지막에 감추거나
+				투명도를 1로 서서히 변경한 후 마지막에 고정
+			- fadeIn(speed, easing, callback) : 서서히 보이기
+			- fadeOut(speed, easing, callback) : 서서히 감추기
+			- fadeToggle(speed, easing, callback) : 서서히 보이기/감추기
+			- fadeTo(speed, opacity, easing, callback):opacity 값까지 서서히 변경
+			*/
+			$('.btn1').click(function(){
+				$('.box').fadeOut();
+			})
+			$('.btn2').click(function(){
+				$('.box').fadeIn();
+			});
+			$('.btn3').click(function(){
+				$('.box').fadeToggle();
+			});
+			$('.btn4').click(function(){
+				$('.box').fadeTo(300, 0.3);
+			});
+		});
+		
+	</script>
+</body>
+</html>

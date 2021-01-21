@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>hover 이벤트 예제</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<button>버튼</button>
+	<script>
+		$(function(){
+			/*
+			- hover 이벤트
+				- 마우스가 요소를 선택할 때 한번, 마우스가 요소를 빠져나올때 한번
+					총 2번 실행 됨
+			$('선택자').hover(inFunction, outFunction);
+				- inFunction : 마우스가 요소안으로 들어갈때 실행될 함수
+				- outFunction : 마우스가 요소안에서 빠저나올 때 실행될 함수
+			$('선택자').hover(function));
+				- function : 마우스가 요소안으로 들어갈때/요소안에서 빠져나올 때
+					동일하게 실행될 함수
+			*/
+			// $('button').hover(function(){
+			// 	console.log('버튼');
+			// })
+			$('button').hover(function(){
+				console.log('버튼 선택');
+			},function(){
+				console.log('버튼 해제');
+			})
+		});
+	</script>
+</body>
+</html>

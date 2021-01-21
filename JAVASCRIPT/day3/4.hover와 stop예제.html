@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>hover와 stop 예제</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.btn{
+			display: block;
+			width: 100%;
+			background-color: yellow;
+			border: 1px solid black;
+			height: 50px;
+			line-height: 50px;
+			font-size: 20px;
+		}
+		.box{
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn">버튼</button>
+	<div class="box"></div>
+	<script>
+		
+		$(function(){
+			$('.btn').hover(function(){
+				$('.box').stop().slideToggle();	
+			})
+		})
+	</script>
+</body>
+</html>

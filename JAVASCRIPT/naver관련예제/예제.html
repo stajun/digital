@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="/js/jquery.js"></script>
+	<style>
+		.box1{
+			height: 100px;
+			background-color: yellow;
+		}
+		.box2{
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<button class="btn">버튼</button>
+	</div>
+	<div class="box2"></div>
+	<script>
+		$(function(){
+			/* 
+			- append와 prepend는 자식 요소의 맨 앞이나 뒤에 추가 
+			- $(A).append(B) : A 요소 안에 B를 제일 뒤에 추가, A가 부모, B가 자식
+			- $(B).appendTo(A) : A 요소 안에 B를 제일 뒤에 추가, A가 부모, B가 자식
+			*/
+			$('.box2').append('<button class="btn">버튼1</button>');
+			$('<button class="btn">버튼2</button>').appendTo('.box2');
+			/*
+			- $(A).detach() : A를 떼어내고, 때어낸 A를 반환
+			*/
+			$('.box1>.btn').detach().appendTo('.box2');
+		})
+	</script>
+</body>
+</html>

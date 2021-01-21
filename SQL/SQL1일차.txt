@@ -1,0 +1,82 @@
+SQL(Structed Query Language)
+
+데이터 정의어 : 데이터베이스/테이블을 관리하는 언어
+엔티티 : 클래스 => 테이블
+Error Code: 1007. Can't create database 'green'; database exists
+
+NN : Not Null => 데이터의 값으로 null값이 오지 못하도록 막아줌
+UQ : Unique => 값이 중복될수 없음
+AI : Auto Incremental => 값이 자동으로 증가(정수 속성만 체크 가능)
+PK: Primary Key =>기본키 => 중복x => 유니크 => NN을 같이 체크
+슈퍼키 : 정보 하나를 추출할수 있는 고유한 속성이나 속성들의 집합
+ - 대한민국 사람을 구분할 수 있는 속성
+  - 주민번호
+  - 주민번호, 이름
+  - 주민번호, 이름, 주소
+  - 태어난날, 시간, 장소, 이름, 성별
+
+후보키 : 슈퍼키 중에서 불필요한 정보를 제거
+ - 대한민국 사람을 구분할 수 있는 속성
+  - 주민번호
+  - 태어난날, 시간, 장소, 이름, 성별
+
+기본키 : 후보키에서 가장 적절한 속성
+ - 대한민국 사람을 구분할 수 있는 속성
+  - 주민번호
+
+대학생
+ - 학번
+ - 주민번호 
+
+CHAR(SIZE) : 최대 SIZE개의 문자열을 저장, 저장된 문자열이 1자이든 0자이든 크기가 SIZE개로 고정
+VARCHAR(SIZE) : 최대 SIZE개의 문자열을 저장, 저장된 문자열이 1자이면 1개 크기로 저장
+TINYTEXT : 최대 255자
+TEXT : SIZE개 문자 저장 최대 65,535자
+MEDIUMTEXT : 최대 16,777,215자
+LONGTEXT : 최대 4,294,967,295자
+
+INT : 정수 -2147483648~2147483647
+BIGINT : 매우 큰 정수
+DOUBLE : 실수
+BOOL : 0을 거짓, 0이 아닌수를 참으로 판별
+
+DATE : 날짜
+DATETIME : 날짜 + 시간
+TIME : 시간
+YEAR : 년도
+
+insert into 테이블명 (속성1, 속성2,...속성n) values(값1, 값2, ..., 값n);
+
+select * from 테이블명;
+* : 모든 속성
+
+alter table 테이블명 add 속성명 타입 기본값;
+alter table 테이블명 drop 속성명;
+
+rename table 테이블명(전) to 테이블명(후);
+
+create database example;
+use example;
+create table if not exists test01(
+nu int not null,
+name varchar(10) not null,
+dep varchar(20) default '',
+addr varchar(20) null,
+tel int,
+primary key(nu));
+
+explain test01;
+
+insert into test01(nu,name,dep,addr,tel)
+values(100,'홍길동','경영학과', '원주시',111),
+(200,'김길동','경영학과','서울시',123),
+ (300,'이길동','컴퓨터','원주시',456);
+ select * from test01;
+
+
+
+
+
+
+
+

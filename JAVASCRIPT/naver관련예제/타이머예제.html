@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>타이머 예제</title>
+	<script src="/js/jquery.js"></script>
+	<style>
+		.timer-box{
+			width: 500px;
+			height: 80px;
+			border: 1px solid black;
+			line-height: 80px;
+			font-size: 30px;
+			text-align: center;
+			font-weight: bold;
+			margin: 0 auto 30px;
+		}
+		.btn-box{
+			width: 502px;
+			margin: 0 auto;
+		}
+		.btn-box::after{
+			display: block;
+			content: '';
+			clear: both;
+		}
+		.btn{
+			width: 200px;
+			height: 50px;
+			float: left;
+		}
+		.stop-btn{	display: none;	}
+		.record-btn{	float: right;	}
+		.timer-record-box{
+			height: 500px;
+			width: 500px;
+			border: 1px solid black;
+			overflow: auto;
+			margin: 50px auto;
+		}
+		.time-record{
+			height: 50px;
+			line-height: 50px;
+			font-size: 30px;
+			text-align: center;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="timer-box">00:00:00.00</div>
+	<div class="btn-box">
+		<button class="btn start-btn">시작</button>
+		<button class="btn stop-btn">정지</button>
+		<button class="btn record-btn">기록</button>
+	</div>
+	<div class="timer-record-box"></div>
+	<script>
+		$(function(){
+			var time = 0;
+			var interval;
+			//시작버튼 클릭
+			$('.start-btn').click(function(){
+				$(this).hide();
+				$('.stop-btn').show();
+				interval = setInterval(() => {
+					time++;
+					$('.timer-box').html(getTime(time));
+				}, 10);
+			})
+			//정지버튼 클릭
+			$('.stop-btn').click(function(){
+				$(this).hide();
+				$('.start-btn').show();
+				clearInterval(interval);
+			})
+			$('.record-btn').click(function(){
+				var str = '<div class="time-record">'+getTime(time) + '<div>'
+				$('.timer-record-box').prepend(str);
+			})
+			//시간을 문자열로 반환하는 함수
+			function getTime(time){
+				var s = parseInt(time / 100);
+				var m = parseInt(time / (60 * 100));
+				var h = parseInt(time / (60 * 60 * 100));
+				var ms = time % 100;
+				s = s < 10 ? '0'+s : s;
+				m = m < 10 ? '0'+m : m;
+				h = h < 10 ? '0'+h : h;
+				ms = ms < 10 ? '0'+ms : ms;
+				return h+':'+m+':'+s+'.'+ms;
+			}
+		})
+	</script>
+</body>
+</html>

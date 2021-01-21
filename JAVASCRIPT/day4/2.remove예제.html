@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>remove 예제</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.box{
+			background-color: yellow;
+			height: 100px;
+		}
+		.box1{
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1">
+		<a href="#">네이버1</a>
+		<div>안녕하세요1.</div>
+	</div>
+	<div class="box box2">
+		<a href="#">네이버2</a>
+		<div>안녕하세요2.</div>
+	</div>
+	<button class="remove-btn">삭제(remove)</button>
+	<button class="empty-btn">삭제(empty)</button>
+	<script>
+		/*
+		- $('선택자').remove()
+			- 해당 요소 + 자식요소 삭제
+		- $('선택자1').remove('선택자2')
+			- 선택자1 요소들 중 선택자2에 해당하는 요소들을 remove()함
+		- $('선택자').empty()
+			- 자식요소 삭제
+		*/
+		$(function(){
+			$('.remove-btn').click(function(){
+				//$('.box').remove('.box1');
+				$('.box.box1').remove();
+			})
+			$('.empty-btn').click(function(){
+				$('.box2').empty();
+			})
+		})
+	</script>
+</body>
+</html>

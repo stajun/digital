@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>클래스 메소드 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box{
+			height: 100px;
+			line-height: 100px;
+			background-color: yellow;
+		}
+		.text-center{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">안녕하세요.</div>
+	<script>
+		/*
+		- $('선택자').addClass('클래스명1 클래스명2');
+			- 해당 요소 속성 중 class 속성에 클래스명1과 클래스명2를 추가
+		- $('선택자').removeClass('클래스명1 클래스명2');
+			- 해당 요소 속성 중 class 속성에 클래스명1과 클래스명2를 제거
+		- $('선택자').toggleClass('클래스명');
+			- 해당 요소 속성 중 class 속성에 클래스명이 있으면 제거, 없으면 추가
+		*/
+		$('.box').addClass('text-center');
+		$('.box').removeClass('box');
+		$('div').toggleClass('box');
+		$('div').toggleClass('box');
+	</script>
+</body>
+</html>

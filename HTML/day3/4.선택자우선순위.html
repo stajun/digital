@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>선택자 우선순위</title>
+	<style>
+		div{
+			color: red;
+		}
+		div>a{
+			color: green;
+		}
+		.naver{
+			color: blue;
+		}
+		#daum{
+			color: yellow;
+		}
+		.naver2{
+			color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div><a href="//naver.com">네이버1</a></div>	
+	<div class="naver naver2">네이버2</div>
+	<div id="daum">다음</div>
+</body>
+</html>

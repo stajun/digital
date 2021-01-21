@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>float 예제</title>
+	<style>
+		.box{
+			border: 1px solid black;
+			background-color: yellow;
+			padding: 10px;
+			width: 502px;
+			box-sizing: border-box;
+		}
+		.box::after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.left{
+			width: 50%;
+			height: 480px;
+			background-color: red;
+			float: left;
+		}
+		.right{
+			width: 50%;
+			height: 480px;
+			background-color: blue;
+			float: right;
+		}
+		.box2{
+			height: 300px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+	<div class="box2"></div>
+</body>
+</html>

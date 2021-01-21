@@ -1,0 +1,64 @@
+검색 기능
+
+- list.jsp
+  - 검색 타입(select)과 검색어를 입력할 수 있는 입력창(input),
+    버튼(button)을 생성 : form태그 안에
+  - form태그에 action을 /board/list, methd는 get
+
+  - 제목 링크를 수정(검색 정보와 현재페이지 정보가 포함되도록)
+
+  - 페이지네이션에서 다음/이전/각페이지 링크를 수정
+     (검색 정보와 현재페이지 정보가 포함되도록)
+
+  - 검색타입과 검색어가 유지되도록 검색창 코드를 수정
+
+- Criteria
+  - 멤버 변수로 검색타입인 type(정수)과 검색어인 search(문자열)
+    를 추가
+  - 새로운 멤버 변수에 대한 getter와 setter를 추가
+  - toString 제거 후 다시 추가
+
+- Controller
+  - getTotalCount()를 수정
+    - (수정) 서비스에게 전체 게시글이 아닌 현재 페이지 정보에
+      (검색타입, 검색어 포함)맞는 게시글을 가져오라고 요청하도록 
+      수정
+  
+- ServiceImp
+  - getTotalCount()를 수정
+    -  (수정) 다오에게 전체 게시글이 아닌 현재 페이지 정보에
+       (검색타입, 검색어 포함)맞는 게시글을 가져오라고 요청하도록 
+       수정
+- Service/Dao
+  - getTotalCount()를 getTotalCount(Criteria cri)로 수정
+
+- Mapper
+  - getTotalCount()를 수정
+    - 검색 타입과 검색어에 맞는 전체 게시글 수를 가져오는 쿼리문
+      으로 수정
+  - getBoardList()를 수정
+    - 검색 타입과 검색어와 현재 페이지 정보에 맞는 게시글들을
+      가져오는 쿼리문으로 수정
+
+- detail.jsp
+  - 목록 버튼에 페이지정보(page), 검색타입(type), 
+    검색어(search)를 링크에 추가
+
+- Controller
+  -/board/detail
+   - 현재 페이지 정보를 화면에서 받아옴(매개변수)
+   - 페이지 정보를 다시 화면에 전달
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>데이트 피커</title>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+	<link rel="stylesheet" href="../css/jquery-ui.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+	<input type="text" id="datepicker">
+	<button class="btn">클릭</button>
+	<script>
+		$(function(){
+			$('#datepicker').datepicker({
+				dateFormat : 'yy-mm-dd',
+				dayNamesMin : ['일','월','화','수','목','금','토'],
+				monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월'
+						,'9월','10월','11월','12월'],
+				monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월'
+						,'9월','10월','11월','12월'],
+				beforeShowDay : disableDay,
+				showOn: "both",
+				buttonImageOnly: true,
+				buttonImage: "calendar.gif",
+				buttonText: "Calendar"
+			});
+			var days = ['2020-12-25','2020-12-29']
+			function disableDay(date){
+				var month = date.getMonth();//월:0~11사이의 값
+				var day = date.getDate();//일
+				var year = date.getFullYear();
+				var strDate = year + '-' + (month+1) + '-' + day;
+				//console.log(strDate);
+				for(i=0; i<days.length; i++){
+					if(days.indexOf(strDate) != -1){
+						return [false];
+					}
+				}
+				var noweekend = $.datepicker.noWeekends(date);
+				return noweekend[0] ? [true] : noweekend;
+			}
+		})
+	</script>
+</body>
+</html>

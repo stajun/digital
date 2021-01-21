@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>이벤트 종류1</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<input type="text" class="change"> <br>
+	<input type="radio" name="gender" value="male"> 남성
+	<input type="radio" name="gender" value="female"> 여성
+	<script>
+		/* 
+		- click : 마우스 클릭
+		- change : 값이 변할 때, 주로 input 태그에서 작동
+			- input태그 중 type이 text,email등과 같이 여러 값을 입력하는 경우
+				값을 입력 후 엔터를 치거나, 다른 곳을 클릭한 경우 change 이벤트가 발생
+		- focus : 요소가 활성화
+		- focusin : 요소가 활성화 될때
+		- focusout : 요소가 비활성화 될때
+		- blur : 요소가 비활성화
+		- kewdown : 키보드가 눌렸을 때 : 특수키보드 허용(alt, ctrl등), 
+			- 영문 코드값이 소문자를 눌러도 대문자 코드값으로 가져옴
+		- keypress : 키보드가 눌렸을 때 : 특수키보드 비허용(alt, ctrl등),한글 불가
+			- 영문 대소문자에 따라 코드 값이 다름
+		- keyup : 키보드를 땔 때
+		*/
+		$(function(){
+			$('.change').change(function(){
+				var val =  $(this).val();
+				console.log(val);
+			})
+			$('input[name=gender]').change(function(){
+				var val =  $(this).val();
+				console.log(val);
+			})
+			$('input[type=text]').focus(function(){
+				$(this).css('background-color','yellow');
+			})
+			$('input[type=text]').focusin(function(){
+				$(this).css('color','red');
+			})
+			$('input[type=text]').focusout(function(){
+				$(this).css('color','black');
+			})
+			$('input[type=text]').blur(function(){
+				$(this).css('background-color','white');
+			})
+			$('input[type=text]').keydown(function(e){
+				console.log('keydown : ' + e.keyCode);
+			})
+			$('input[type=text]').keypress(function(e){
+				console.log('keypress : ' + e.keyCode);
+			})
+			$('input[type=text]').keyup(function(){
+				console.log('keyup');
+			})
+		})
+	</script>
+</body>
+</html>

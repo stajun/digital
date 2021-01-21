@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>slide 예제</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.btn1,.btn2,.btn3{
+			width: 100%;
+			height: 50px;
+			display: block;
+			background-color: transparent;
+			border: 1px solid black;
+			cursor: pointer;
+			font-size: 20px;
+		}
+		.box{
+			border: 1px solid #000;
+			border-top: none;
+			background-color: yellow;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn1">slideUp</button>
+	<button class="btn2">slideDown</button>
+	<button class="btn3">slideToggle</button>
+	<div class="box"></div>
+	<script>
+		$(function(){
+			/*
+			- slide는 높이를 서서히 변화시킴
+			- slideDown(speed, easing, callback) : 서서히 나타나면서 아래로 내려감
+			- slideUp(speed, easing, callback) : 서서히 올라가면서 사라짐
+			- slideToggle(speed, easing, callback) : 서서히 나타나거나 서서히 올라감
+			*/
+			$('.btn1').click(function(){
+				$('.box').slideUp();
+			})
+			$('.btn2').click(function(){
+				$('.box').slideDown();
+			});
+			$('.btn3').click(function(){
+				$('.box').slideToggle();
+			});
+		});
+		
+	</script>
+</body>
+</html>

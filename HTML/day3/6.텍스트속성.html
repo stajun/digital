@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>텍스트 속성</title>
+	<style>
+		/* 
+		text-index : 들여쓰기, 값 : 들여쓰기 길이
+		text-align : 정렬, 값 : left(왼쪽),right(오른쪽),center(가운데),justify(양쪽)
+		text-decoration : 줄긋기
+		 - none : 줄 없음
+		 - underline : 밑줄
+		 - overline : 윗줄
+		 - line-through : 가운데줄 (취소선)
+		 */
+		/* css 표준 단위
+		em : 배수, 현재값을 기준으로 배수
+		rem : 배수, 문서의 기본 값을 기준으로 배수
+		% : 퍼센트, 현재값을 기준으로 %
+		px : 픽셀수, 고정된 픽셀
+		cm : 센티미터
+		mm : 밀리미터
+		in : 인치, 1in = 96px
+		pt : 포인터, ipt = 1/72in
+		pc : 피카소, 1px = 12pt
+		deg : 각도
+		*/
+		p{
+			text-indent: 20px;
+			text-align: center;
+			text-decoration: underline;
+		}
+		.line{
+			/* 텍스트가 범위를 넘어가는 경우 */
+			text-overflow: ellipsis;
+			/* 글자들이 범위를 넘어가면 어떻게 할것인지를 정하는 속성으로
+			nowap인 경우 한줄로 처리 */
+			white-space: nowrap;
+			/* 요소가 범위를 넘어가면 어떻게 할것인지를 정하는 속성
+				hidden : 안보이게 감춤
+				scroll : 무조건 스크롤이 생김
+				auto : 넘으면 스크롤이, 안넘으면 안보임
+			 */
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<p>안녕하세요. 제 이름은 홍길동입니다.
+		안녕하세요. 제 이름은 홍길동입니다.
+		안녕하세요. 제 이름은 홍길동입니다.
+		안녕하세요. 제 이름은 홍길동입니다.
+		안녕하세요. 제 이름은 홍길동입니다.
+		안녕하세요. 제 이름은 홍길동입니다.
+	</p>
+	<p class="line">
+		안녕하세요. 제 이름은 홍길동입니다.
+		안녕하세요. 제 이름은 홍길동입니다.
+		안녕하세요. 제 이름은 홍길동입니다.
+		안녕하세요. 제 이름은 홍길동입니다.
+		안녕하세요. 제 이름은 홍길동입니다.
+		안녕하세요. 제 이름은 홍길동입니다.
+	</p>
+</body>
+</html>

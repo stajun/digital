@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>absolute예제</title>
+	<style>
+		.box{
+			height: 100px;
+			margin-bottom: 10px;
+		}
+		.box:nth-child(2){
+			position: relative;
+		}
+		.c-box{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+			display: inline-block;
+		}
+		.box1{
+			position: absolute;
+			top: 0;
+			right: 0;
+			background-color: green;
+		}
+		.box2{
+			position: absolute;
+			background-color: red;
+			top: 300px;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="c-box box1"></div>
+		<div class="c-box"></div>
+	</div>
+	<div class="box">
+		<div class="c-box box1"></div>
+		<div class="c-box"></div>
+	</div>
+	<div class="box">
+		<div class="box2"></div>
+		<div class="c-box"></div>
+	</div>
+</body>
+</html>

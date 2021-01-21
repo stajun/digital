@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>스크립트 기본 예제</title>
+</head>
+<body>
+
+	<script>
+		/*
+		- 변수 선언 방법
+		var 변수명;
+		let 변수명;
+		- 스크립트에서 변수 선언할 때 자료형을 지정하지 않는다.
+		- 그래서 하나의 변수는 여러 자료형을 저장할 수 있다.
+		- 정수를 저장했다가 문자열을 저장할수도 있다.
+		- var는 중복 선언 가능
+		- let은 중복 선언 불가능
+		*/
+		var num1 = 10;
+		var num1 = 20;
+		let num2 = 30;
+		//let num2 = 40; //에러 발생
+		/*
+		- 스크립트에서는 ;이 필수가 아니지만 ;를 쓰는 습관을 갖자
+		- 스크립트에서는 문자열은 '' 또는 ""이다.
+		*/
+		var num3 = 50 //문제가 없는 코드, ; 생략 가능
+		var str1 = '<div class="box"></div>';
+		var str2 = "<div class='box'></div>";
+		/*
+		- 스크립트 입력 및 출력 창
+		- prompt : 값을 입력할 때 사용하며, 입력받은 내용을 반환한다
+		- prompt(입력창제목, 입력창기본값) 
+		- console.log(문자열) : 문자열을 콘솔창에 출력
+		- alert(문자열) : 알림창을 띄움
+		- confirm(문자열) : 문자열을 확인하기 위한 창으로 확인과 취소 버튼이 있음
+			- 확인을 누르면 true를 취소를 누르면 false를 반환
+		*/
+		var data = prompt('제목','기본값');
+		console.log(data);
+		alert("회원가입이 완료 되었습니다.");
+		var isOk = confirm('가입 하시겠습니까?');
+		console.log(isOk);
+		/*
+		- 자바는 코드에 문제가 있으면 전체가 실행되지 않음
+		- 스크립트는 코드에 문제가 있으면 문제가 있는 코드전까지 실행되고
+			문제가 있는 코드에서 실행되지 않음
+		- 아래 prom이라는 함수가 없다. 자바 같은 경우는 함수(메소드)가 없으면
+			실행자체가 안되는데 스크립트는 prom전까지는 잘 실행되다 prom에서 에러가
+			발생한다.
+		*/
+		//prom('df')
+		/*
+		- 상수는 const를 이용하여 지정*/
+		const PI = 3.14;
+		PI = 3.15;//에러 발생
+	</script>
+</body>
+</html>

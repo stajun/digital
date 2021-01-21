@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>버블링 예제</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<div class="box">
+		<div class="box-inner">
+			<div class="box-left">
+				<button class="btn">버튼</button>
+			</div>
+			<div class="box-right">
+				박스
+			</div>
+		</div>
+	</div>
+	<script>
+		/* 
+		- 버블링
+			- 요소에 이벤트가 발생했을 때 해당 요소에만 발생하는 게 아니라 
+				해당 요소의 조상들도 이벤트가 발생하는 현상 
+		stopPropagation() : 버블링 효과를 막아주는 메소드
+		*/
+		$('.box').click(function(){	console.log('box : click');	});
+		$('.box-inner').click(function(){	console.log('box-inner : click');	});
+		$('.box-left').click(function(){	console.log('box-left : click');	});
+		$('.box-right').click(function(){	console.log('box-right : click');	});
+		$('.btn').click(function(e){	
+			console.log('btn : click');	
+			e.stopPropagation();
+		});
+	</script>
+</body>
+</html>

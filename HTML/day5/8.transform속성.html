@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>transform 속성</title>
+	<style>
+		/* 
+		- transform : 회전,이동, 확대등을 할 때 사용 
+			- translate(x1,y1) : x축으로 x1만큼, y축으로 y1만큼 이동
+			- translateX(x1) : x축으로 x1만큼 이동
+			- translateY(y1) : y축으로 y1만큼 이동
+			- scale(w,h) : 가로를 w배, 높이를 h배만큼 조절, 0으로 하면 안보임
+			- scaleX(w) : 가로를 w배
+			- scaleY(h) : 높이를 h배
+			- rate(a) : a 각도 만큼 시계방향 회전
+			- skew(xa, ya) : x축으로 xa만큼, y축으로 ya만큼 기울임
+			- skewX(xa) : x축으로 xa만큼 기울임
+			- skewY(ya) : y축으로 ya만큼 기울임
+		*/
+		div{
+			width: 200px;
+			height: 50px;
+			line-height: 50px;
+			background-color: yellow;
+			font-weight: bold;
+			margin-bottom: 10px;
+			border: 1px solid black;
+		}
+		.box1{	animation: translate infinite 3s;		}
+		@keyframes translate {
+			0%	{	transform: translate(0,0);	}
+			50%	{	transform: translate(50px,50px);}
+			90%{	transform: translate(0,0);	}
+		}
+		.box2{	animation: scale infinite 3s;	background-color: transparent;	}
+		@keyframes scale {
+			0%	{	transform: scale(1,1);	}
+			50%	{	transform: scale(2,2);}
+			90%{	transform: scale(1,1);	}
+		}
+		.box3{	animation: rotate infinite 3s;	}
+		@keyframes rotate {
+			0%	{	transform: rotate(0deg);	}
+			50%	{	transform: rotate(360deg);}
+			90%{	transform: rotate(0deg);	}
+		}
+		.box4{	animation: skew infinite 3s;	}
+		@keyframes skew {
+			0%	{	transform: skew(0deg,0deg);	}
+			50%	{	transform: skew(30deg,30deg);}
+			90%{	transform: skew(0deg,0deg);	}
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3">회전</div>
+	<div class="box4"></div>
+</body>
+</html>

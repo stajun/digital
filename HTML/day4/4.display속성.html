@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>display속성</title>
+	<style>
+		/* 
+		- block
+			- 새 라인에서 시작
+			- width, height 크기 조절 가능
+			- 여백 조절 가능
+		- inline
+			- 현재 라인에서 이어서 시작
+			- 크기 조절 불가능
+			- margin 조절 불가능
+		- inline-block
+			- 현재 라인에서 이어서 시작
+			- 크기 조절 가능
+			- 여백 조절 가능
+		- 각 태그는 기본 inline, block, inline-block 중 하나지만 
+			display 속성을 이용하여 기본 값을 변경할 수 있다.
+		*/
+		div{
+			width: 200px;
+			height: 50px;
+			background-color: yellow;
+			/* display: inline; */
+		}
+		span{
+			width: 200px;
+			height: 50px;
+			background-color: pink;
+			display: block;
+		}
+		button{
+			width: 200px;
+			height: 50px;
+			background-color: green;
+		}
+		a{
+			width: 200px;
+			height: 50px;
+			background-color: greenyellow;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div>안녕하세요</div>
+	<span>안녕하세요</span>
+	<button>안녕</button>
+	<a href="//naver.com">네이버</a>
+</body>
+</html>

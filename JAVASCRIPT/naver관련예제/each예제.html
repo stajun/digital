@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="js/jquery.js"></script>
+</head>
+<body>
+	<ul>
+		<li class="menu">메뉴1</li>
+		<li class="menu">메뉴2</li>
+		<li class="menu">메뉴3</li>
+		<li class="menu">메뉴4</li>
+		<li class="menu">메뉴5</li>
+	</ul>
+	<script>
+		$(function(){
+			// var size = $('.menu').length;
+			// for(var i = 0; i<size; i++){
+			// 	var text = $('.menu').eq(i).text();
+			// 	console.log(text);
+			// }
+			$('.menu').each(function(i){
+				var text = $(this).text();
+				console.log(text);
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>스와이퍼 에제</title>
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+	<style>
+		*{	padding: 0;	margin: 0;}
+		.swiper-container .swiper-wrapper{
+			width: 100%;
+			height: 50px;
+		}
+		.swiper-container .swiper-slide{
+			float: left;
+			width: 20%;
+			box-sizing: border-box;
+			height: 100%;
+			border: 1px solid black;
+			background: yellow;
+			border-left: none;
+			list-style: none;
+		}
+		.swiper-container .swiper-slide:first-child{
+			border-left: 1px solid black;
+		}
+		.swiper-container .swiper-slide>a{
+			text-align: center;
+			line-height: 48px;
+			text-decoration: none;
+			font-size: 20px;
+			font-weight: bold;
+			color: #000;
+			display: block;
+		}
+		.content-box{
+			width: 100%;
+			overflow: hidden;
+		}
+		.content-box .swiper-slide{
+			width: 100%;
+			height: 500px;
+			line-height: 500px;
+			font-size: 50px;
+			text-align: center;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<nav class="swiper-container">
+		<ul class="swiper-wrapper">
+			<li class="swiper-slide"><a href="#">컨텐츠1</a></li>
+			<li class="swiper-slide"><a href="#">컨텐츠2</a></li>
+			<li class="swiper-slide"><a href="#">컨텐츠3</a></li>
+			<li class="swiper-slide"><a href="#">컨텐츠4</a></li>
+			<li class="swiper-slide"><a href="#">컨텐츠5</a></li>
+		</ul>
+	</nav>
+	<div class="content-box">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">컨텐츠1</div>
+			<div class="swiper-slide">컨텐츠2</div>
+			<div class="swiper-slide">컨텐츠3</div>
+			<div class="swiper-slide">컨텐츠4</div>
+			<div class="swiper-slide">컨텐츠5</div>
+		</div>
+	</div>
+	<script>
+		var menuSlide = new Swiper('.swiper-container', {
+			slidesPerView: 3,
+			slideToClickedSlide: true,
+      centeredSlides: true
+    });
+		var contentSlide = new Swiper('.content-box');
+		menuSlide.controller.control = contentSlide;
+		contentSlide.controller.control = menuSlide;
+	</script>
+</body>
+</html>

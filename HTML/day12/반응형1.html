@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>반응형예제1</title>
+	<style>
+		/* 
+		- 스마트기기의 발달로 다양한 크기의 화면들이 나오면서 동일한 화면을 
+			작은 기기로 보면 불편함이 생김
+		- 화면의 크기가 다르면 다른 크기에 맞춰 화면을 볼 수 있게 하는
+			반응형 홈페이지들이 나옴
+		- 기기의 화면 크기에 따라 홈페이지 화면이 바뀌는 것을 반응형이라 한다
+		*/
+		.box{
+			width: 100px;
+			height: 100px;
+		}
+		/* 640px 이하 기기에서 적용할 css */
+		@media (max-width:640px) {
+			.box{
+				background-color: red;
+			}
+		}
+		/* 641px 이상 1200px이하에서 적용할 css */
+		@media (min-width:641px) and (max-width: 1200px) {
+			.box{
+				background-color: blue;
+			}
+		}
+		/* 1201px 이상에서 적용할 css */
+		@media (min-width: 1201px) {
+			.box{
+				background-color: green;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

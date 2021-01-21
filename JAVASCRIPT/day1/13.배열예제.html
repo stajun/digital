@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>배열 예제</title>
+</head>
+<body>
+	<script>
+		/* 
+		- 입력창을 통해 정수 1개를 입력받는다. 
+		- 입력 한 수만큼 입력창을 통해 값을 입력받아 배열에 저장한 후 출력하는
+			예제를 작성하세요.
+		예 : 
+		- 처음 입력한 숫자가 3이면, 입력창을 3번 열어서 값을 입력받고 배열에
+			저장한다. 배열에는 3개의 값이 저장될 것이고, 이를 출력하면 된다.
+		*/
+		var cnt = prompt('배열에 추가할 갯수를 입력하세요','');
+		var arr = [];
+		if(!isNaN(cnt)){
+			for(var i = 0; i<cnt ; i++){
+				var data = prompt('값'+(i+1),'');
+				arr.push(data);
+			}
+			alert(arr);
+		}else{
+			alert('정수가 아닙니다.');
+		}
+		
+	</script>
+</body>
+</html>

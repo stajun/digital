@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>opacity속성</title>
+	<style>
+		/* 
+		- opacity : 투명도
+			- 0~1사이의 값을 가짐 
+			- 0이면 투명
+			- 1이면 불투명
+			- 자식 요소는 부모의 opacity를 따라감
+		*/
+			
+		.box{
+			position: absolute;
+			background-color: white;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 0.5;
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			opacity: 1;
+		}
+		.box3{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			opacity: 1;
+			position: absolute;
+			bottom: -100px;
+		}
+	</style>
+</head>
+<body>
+	<div>안녕하세요.</div>
+	<div class="box">
+		<!-- box2를 원래 빨강으로 하고 싶어도 부모의 opacity에 영향을 받아 
+		변경이 안된다 -->
+		<div class="box2"></div>
+	</div>
+	<div class="box3"></div>
+</body>
+</html>

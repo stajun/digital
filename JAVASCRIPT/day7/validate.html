@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>유효성 검사</title>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery.validate.js"></script>
+	<script src="../js/additional-methods.js"></script>
+</head>
+<body>
+	<form action="" id="form">
+		<input type="text" name="id" placeholder="아이디"><br>
+		<label id="id-error" class="error" for="id"></label><br>
+		<input type="password" name="pw" placeholder="비번" id="pw"><br>
+		<input type="password" name="pw2" placeholder="비번확인"><br>
+		<input type="text" name="age" placeholder="나이"><br>
+		<input type="text" name="name" placeholder="이름"><br>
+		<input type="text" name="email" placeholder="이메일"><br>
+		<input type="text" name="home" placeholder="홈페이지"><br>
+		<button type="submit">회원가입</button>
+	</form>
+	<script>
+		$(function(){
+			$('#form').validate({
+				rules : {
+					id : {
+						required : true,
+						minlength : 8
+					},
+					pw : {
+						required : true,
+						regex:/^[a-zA-Z0-9]{8,13]}$/
+					},
+					pw2 : {
+						equalTo : pw
+					},
+					age : {
+						digits : true
+					},
+					email : {
+						email : true
+					},
+					home : {
+						url : true
+					}
+				},
+				messages : {
+					id : {
+						required : '필수로 입력하세요.',
+						minlength : '최소 {0}글자이상이어야 합니다.'
+					},
+					pw : {
+						required : '필수로 입력하세요.',
+						regex: '비밀번호는 영문자,숫자로 이루어져야하고, 8~13자이어야합니다.'
+					},
+					pw2 : {
+						equalTo : '비밀번호와 일치하지 않습니다.'
+					},
+					age : {
+						digits : '나이는 숫자만 입력가능합니다.'
+					},
+					email : {
+						email : '이메일 형식에 맞지 않습니다.'
+					},
+					home : {
+						url : '홈페이지 형식에 맞지 않습니다.'
+					}
+				}
+			})
+			$.validator.addMethod('regex',function(value, elemnt, regexp){
+				var re = new RegExp(regexp);
+				return this.optional(elemnt) || re.test(value);
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>input태그</title>
+	<style>
+		/* 태그[속성명=값] */
+		input[type=text]{
+			color: red;
+		}
+		input{
+			border: 1px solid skyblue;
+			height: 30px;
+			border-radius: 5px;
+		}
+		input:focus{
+			/* outline: 1px solid red; */
+			outline-color: red;
+		}
+		input:hover{
+			background-color: springgreen;
+		}
+	</style>
+</head>
+<body>
+	<input type="text"> <br>
+	<input type="password">
+</body>
+</html>

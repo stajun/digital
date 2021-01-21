@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>meta태그</title>
+	<!-- 
+		- meta태그는 head태그 안에 들어가며, 문서의 정보(페이지)와 관련된 태그
+		- name 속성
+		 - viewport : 화면의 비율을 설정
+		 - author : 페이지 작성자
+		 - description : 페이지 요약 정보
+		 - keywords : 컨텐츠와 관련된 키워드
+		 - creator : 단체,협회 등 생성자의 이름
+		 - title : 페이지의 제목
+		 - 위의 속성들은 링크를 공유할 때 보여지는 정보들
+		 - robots : 웹 크롤러를 통해 문서를 읽어 갈수 있는지를 결정해주는 속성
+	-->
+	<meta name="author" content="홍길동">
+	<meta name="description" content="예제입니다.">
+	<meta name="keywords" content="키워드1 키워드2">
+	<meta name="creator" content="green">
+	<meta name="title" content="메타 예제">
+	
+	<!-- 이 문서 + 링크된 문서 크롤링 가능 -->
+	<meta name="robots" content="index,follow">
+	<!-- 링크된 문서만 크롤링 가능 -->
+	<meta name="robots" content="noindex,follow">
+	<!-- 크롤링 불가능 -->
+	<meta name="robots" content="noindex,nofollow">
+	<!-- 이 문서만 크롤링 가능 -->
+	<meta name="robots" content="index,nofollow">
+</head>
+<body>
+	
+</body>
+</html>

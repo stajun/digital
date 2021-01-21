@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>set 예제</title>
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+		.box1{	background-color: wheat;}
+		.box2{	background-color: yellow;}
+		.box3{	background-color: turquoise;}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<input type="text" class="box3">
+	<div class="box4">
+		<button>버튼</button>
+	</div>
+	<input type="checkbox" id="male">
+	<input type="checkbox" id="female">
+	<script>
+		/*
+		- text('문자열') : 해당 요소에 문자열을 추가
+		- html('코드') : 해당 요소에 html코드를 추가
+		- val('값') : 해당 요소에 값을 추가
+		- attr('속성명','값') : 해당 요소의 속성 정보를 설정
+		- prop('속성명','값') : 해당 요소의 속성 정보를 설정
+		*/
+		$('.box1').text('안녕하세요');
+		$('.box2').html('<b>안녕하세요</b>');
+		$('.box3').val('안녕하세요');
+		$('.box4').html('<input type="text"/>');
+		$('#male').attr('checked','checked');
+		$('#female').prop('checked',true);
+	</script>
+</body>
+</html>

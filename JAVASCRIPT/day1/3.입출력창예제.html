@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>입출력창 예제</title>
+</head>
+<body>
+	<script>
+		/*
+		- 회원 가입 진행 여부를 확인하는 창을 만들어서 확인 버튼을 누르면
+			회원가입이 되었습니다라고 알림창을 띄우고 취소 버튼을 누르면
+			회원가입이 취소 되었습니다라고 알림창을 띄우는 예제
+		*/
+		var isOk = confirm('회원가입을 진행하시겠습니까?');
+		if(isOk){
+			alert('회원가입이 되었습니다');
+		}else{
+			alert('회원가입이 취소 되었습니다');
+		}
+	</script>
+</body>
+</html>

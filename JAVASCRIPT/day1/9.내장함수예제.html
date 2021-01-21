@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>내장함수 예제</title>
+</head>
+<body>
+	<script>
+		/*
+		- encodeURICompnent() : 영문, 숫자와 ()-_.~*!'를 제외한 문자를 인코딩
+		- decodeURICompnent() : 인코딩된 문자들을 디코딩 함
+		*/
+		var str='자바';
+		var enStr = encodeURIComponent(str);
+		console.log('자바 인코딩 : ' + enStr);
+		console.log(enStr+' 디코딩 : ' + decodeURIComponent(enStr));
+		/*
+		- isNaN() : 숫자인지 아닌지 판별하는 함수, 숫자이면 false, 아니면 true
+		- NaN : Not a Number 약자
+		- isFinite() : 유한값인지 무한값인지 판별하는 함수, 유한이면 true, 
+			무한이면 false
+		*/
+		console.log('"12a"는 숫자? ' + !isNaN('12a'));
+		console.log('"12"는 숫자? ' + !isNaN('12'));
+		console.log('12는 숫자? ' + !isNaN(12));
+		console.log('1/0은 무한? ' + !isFinite(1/0));
+		console.log('1/1은 무한? ' + !isFinite(1/1));
+		/*
+		- parseInt() : 문자열을 정수로, 숫자와 문자가 포함된 경우 정수부분만
+		- parseFloat() : 문자열을 실수로, 숫자와 문자가 포함된 경우 실수부분만
+		- String() : 문자열로 바꾸어주는 함수
+		*/
+		var strNum = '123a';
+		var num = parseInt(strNum);
+		console.log(num + '의 자료형 : ' +typeof num);
+		strNum = '' + num;
+		console.log(strNum + '의 자료형 : ' +typeof strNum);
+
+	</script>
+</body>
+</html>

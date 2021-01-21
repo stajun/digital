@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>분할예제2</title>
+	<style>
+		.box{
+			width: 500px;
+			border: 1px solid black;
+		}
+		.box::after{
+			content: '';
+			clear: both;
+			display: block;
+		}
+		/* 
+		- calc(식) 
+		 	- 단위가 다른 값들을 계산할 때 사용하는 함수
+			- 연산자 앞뒤로 공백을 써야함
+		*/
+		.box1{
+			width: calc(100% / 3);
+			height: 500px;
+			background-color: yellow;
+			float: left;
+		}
+		.box2{
+			width: calc(100% / 3);
+			height: 500px;
+			background-color: pink;
+			float: left;
+		}
+		.box3{
+			width: calc(100% / 3);
+			height: 500px;
+			background-color: greenyellow;
+			float: left;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+	</div>
+</body>
+</html>

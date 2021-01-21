@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>for문 예제</title>
+</head>
+<body>
+	<script>
+		var arr = [1,2,3,4];
+		var i;
+		console.log('--기본 for문--');
+		for(i=0; i<arr.length; i++){
+			console.log(arr[i]);
+		}
+		/* 배열인 경우 번지를 가져옥, 객체인 경우 속성명을 가져온다 */
+		console.log('--for in문--');
+		for(i in arr){
+			console.log(arr[i]);
+		}
+		/* 배열이나 객체에서 값을 순차적으로 가져온다 */
+		console.log('--for of문--');
+		for(var value of arr){
+			console.log(value)
+		}
+		/* 배열요소를 순차적으로 가져옴 */
+		console.log('--forEach문1--');
+		arr.forEach(function(value){
+			console.log(value);
+		})
+		console.log('--forEach문2--');
+		arr.forEach(function(value,index,array){
+			console.log(index+'번지 : '+value);
+			console.log(array);
+		})
+	</script>
+</body>
+</html>

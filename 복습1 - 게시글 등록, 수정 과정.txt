@@ -1,0 +1,88 @@
+게시글 등록
+- detail.jsp /  list.jsp
+ - 게시글 등록 버튼 생성 : 버튼을 클릭하면 /board/register로 이동
+
+- BoardController
+o - /board/register url을 담당하는 메소드(get) 추가 : 게시글등록화면
+o  - /board/register.jsp 화면과 연결
+
+ - /board/register url을 담당하는 메소드(post) 추가 : 게시글등록기능
+o  - 화면에서 넘겨준 게시글 정보를 받아옴(매개변수)
+o  - 서비스에게 게시글 정보를 주면서 등록하라고 요청
+o  - 등록 후 /board/list 로 이동  
+
+- BoardService/BoardDao 
+o - 필요한 메소드 생성
+o - Dao에 있는 메소드의 매개변수 앞에 @Param("??")를 추가
+
+- BoardServiceImp
+o - 컨트롤러가 넘겨준 게시글 정보를 다오에게 전달하여 게시글 
+   등록을 요청
+
+- BoardMapper
+ - 게시글 정보를 DB에 추가(insert)하는 쿼리문 작성
+
+- /board/register.jsp
+o - 게시글 등록할 수 있는 화면을 form태그로 구성
+o - form태그의 method를 post로 설정
+o - action을 <%=request.getContextPath()%>/board/register로 설정
+
+게시글 수정
+- /board/detail.jsp
+ - 수정 버튼 추가
+
+- /board/modify.jsp
+ - 파일 생성
+ - form태그를 이용하여 수정 화면 구성
+ - form태그 method를 post로
+ - fomr태그 action을 
+   <%=request.getContextPath()%>/board/modify로
+ - 서버가 보내준 게시글을 화면에 출력
+
+- BoardController
+ 1. /board/modify get을 처리하는 메소드 추가
+o  - /board/modify.jsp와 연결
+o  - 화면에서 게시글 번호를 넘겨 받아옴(매개변수)
+   => url을 통해 정보를 넘겨받음. ?변수=값
+o  - 서비스에게 해당 번호와 일치하는 게시글을 달라고 요청
+o  - 받아온 게시글을 화면에 전송
+ 2. /board/modify post를 처리하는 메소드 추가
+o  - 화면에서 넘겨준 게시글 정보를 받아옴(매개변수)
+o  - HttpServletRequest에서 회원 정보를 가져옴(매개변수)
+o  - 서비스에게 게시글 정보와 회원 정보를 전달하여 수정하도록 요청
+o  - 수정이 완료되면 게시글리스트(/board/list)로 이동
+
+- BoardService/BoardDao
+ - 필요한 메소드 추가
+ - Dao의 매개변수에 @Param("??")을 추가
+
+- BoardServiceImp
+o - 받아온 게시글 번호로 다오에게 DB에서 게시글을 가져오라고 요청
+o - 원본 게시글 작성자와 받아온 게시글 작성자가 다르거나
+   회원 아이디와 원본 작성자가 같은지 확인하여 같지 않으면
+   메소드 종료(return ;)
+o - 다오에게 게시글 정보를 주고 게시글 수정 요청을 함
+
+- BoardMapper
+ - 게시글 제목, 내용, isDel을 수정하는 쿼리문 작성
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

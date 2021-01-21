@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>형제 탐색</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		div{
+			padding: 20px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		컨테이너
+		<div class="wrap">
+			래퍼
+			<div class="inner-box">
+				이너박스
+				<div class="box box1">
+					박스1
+				</div>
+				<div class="box box2">
+					박스2
+				</div>
+				<div class="box box3">
+					박스3
+				</div>
+				<div class="box box4">
+					박스4
+				</div>
+				<div class="box box5">
+					박스5
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		/*
+		- siblings() : 요소의 모든 형제들
+		- siblings('선택자') : 요소의 형제들중 선택자와 일치하는 형제들
+		- next() : 요소의 다음 형제
+		- nextAll() : 요소의 모든 다음 형제들
+		- nextUntil('선택자') : 요소부터 요소의 다음 형제들 중 선택자와 일치하는 요소전까지 형제들
+		- prev() : 요소의 이전 형제
+		- prevAll() : 요소의 모든 이전 형제들
+		- prevUntil('선택자') : 요소부터 요소의 이전 형제들 중 선택자와 일치하는 요소전까지 형제들
+		*/
+		$('.box3').siblings().css('background-color','rgb(255,255,0)');
+		$('.box3').siblings('.box2').css('text-align','center');
+		$('.box3').next().css('font-weight','bold');
+		$('.box3').prev().css('font-style','italic');
+		$('.box3').nextAll().css('border-color','red');
+		$('.box3').prevAll().css('border-style','dotted');
+		$('.box3').nextUntil('.box5').css('font-size','20px');
+		$('.box3').prevUntil('.box1').css('font-size','30px');
+	</script>
+</body>
+</html>

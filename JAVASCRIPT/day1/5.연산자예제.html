@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>연산자 예제</title>
+</head>
+<body>
+	<script>
+		/* 
+		- 자바와 스크립트에서 연산자의 차이점
+			- 스크립트에서는 정수 / 정수는 실수가 된다. 자바에서는 정수.
+			- 자바에서는 ==를 이용하여 문자열과 숫자를 비교할 수 없지만 스크립트에서는 가능
+			- ==는 값이 같음을 의미, ===는 값과 데이터 타입이 같음을 의미
+			- !=는 값이 다름을 의미, !==는 값이 다르거나 데이터 타입이 다름을 의미
+			- 두 문자열을 비교시 한글자씩 비교
+		*/
+		console.log('1 / 2 = ' + (1 / 2));
+		console.log('1 == "1" : ' + (1 == '1'));
+		console.log('"1" == "1" : '  + ('1' == '1'));
+		console.log('13 > "12" : ' + (13 > '12'));
+		console.log('112 > "12" : ' + (112 > '12'));
+		console.log('"112" > "12" : ' + ('112' > '12'));
+		console.log('"1" === 1 : '  + ('1' === 1));
+		console.log('"1" !== 1 : '  + ('1' !== 1));
+	</script>
+</body>
+</html>

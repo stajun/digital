@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>애니메이션 예제</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			animation-name: move;
+			animation-iteration-count: infinite;
+			animation-duration: 3s;
+		}
+		@keyframes move {
+			0%	{	margin-left: 0;}
+			50%	{	margin-left: 500px;}
+			100%{	margin-left: 0;}
+		}
+		@keyframes move2 {
+			0%	{	left: 8px;}
+			50%	{	left: 508px;}
+			100%{	left: 8px;}
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			animation-name: move2;
+			animation-iteration-count: infinite;
+			animation-duration: 3s;
+			position: absolute;
+			top: 120px;
+			left: 8px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box2"></div>
+</body>
+</html>

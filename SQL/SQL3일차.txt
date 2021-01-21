@@ -1,0 +1,137 @@
+ 트랜잭션 예제
+
+start transaction;
+-- DML 작업
+insert into test01(nu, name, dep, addr, tel)
+values(2020160002, '강철수','컴퓨터','수원시',123);
+-- transaction에서 작업한 내용이 취소됨
+rollback; 
+
+start transaction;
+insert into test01(nu, name, dep, addr, tel)
+values(2020160002, '강철수','컴퓨터','수원시',123);
+commit; -- 이전 작업을 반영하여 저장
+rollback; -- 아무런 영향이 없음
+
+view 예제
+create view department(dep)
+as
+select distinct dep from test01;
+
+select * from department;
+
+drop view department;
+
+mod 함수
+select mod(7,3);
+select mod(7,4);
+
+round 함수
+select round(1.456,3);
+
+문자열 바꾸기
+select replace('가나다라마바','가','A');
+
+문자열 이어붙이기
+ select concat('가나다','마바','사아');
+
+
+select * from test01 where name like '강%';
+select * from test01 where addr like concat('%','서','%');
+select * from test01 where nu like concat('2020','%');
+
+select substr('가나다라',2);
+select substr('가나다라',2,1);
+select substr('가나다라',위치,갯수);
+
+select char_length('가나다');
+select length('가나다');
+
+test01에서 학생 주소의 시를 제외한 부분을 출력하세요.
+
+select substr(addr,1,char_length(addr)-1) from test01;
+
+-- 2020년 11월에서 2020년 1월까지의 개월수
+select period_diff(2011,2001);
+
+select date_add('2020-11-12',interval 1 month);
+
+select now();
+insert into product values(9, '아우터', '패팅', '패딩 점퍼', 40000, 100, 0, now());
+
+alter table product change column register_date register_date datetime not null default current_timestamp;
+
+insert into product(type_a,type_b,price,amount,sale_amount,name)
+values('아우터','패딩',50000,100,0,'최신 패딩');
+
+ -- auto_increment 적용
+ alter table product change column num num int not null auto_increment;
+
+select cast(2019123002/1000000 as decimal);
+select convert(2019123002/1000000 , decimal);
+
+1. BINARY
+2. CHAR
+3. DATE
+4. DATETIME
+5. TIME
+6. DECIMAL
+7. JSON (MySQL 5.7.8부터 제공됨)
+8. NCHAR
+9. SIGNED [INTEGER]
+10. UNSIGNED [INTEGER]
+
+cast나 convert를 이용하여 test01에 있는 학번을 출력하는 쿼리문을 작성하세요. 중복된 학번은 제외
+
+select distinct convert(nu/1000000, decimal) from test01;
+
+-- test01 테이블을 초기화, auto_incremetn 값이 1부터
+truncate table test01;
+
+between ~사이
+select * from product where price >= 30000 and price <= 50000;
+select * from product where price between 30000 and 50000;
+
+is null : null은 =를 사용할 수없다
+select * from test01 where tel is null;
+select * from test01 where tel is not null;
+
+주소가 서울시와 청주시인 학생들의 정보 확인하는 쿼리문
+select * from test01 where addr = '서울시' or addr = '청주시';
+select * from test01 where addr in ('서울시','청주시');
+
+조건문
+select name,
+case     when tel is null        then '미등록'
+           when tel is not null    then tel
+           end as '전화번호'
+from test01;
+select name,
+case     when tel is null        then '미등록'
+           else tel
+           end as '전화번호'
+from test01;
+
+아래와 같이 출력되도록 test01 쿼리문을 작성하세요.
+학번		이름
+2020160001(신입생)	홍길동
+2019160001	강감찬
+select case
+	when nu like concat('2020','%') then nu
+	else concat(nu,'(신입생)')
+end as '학번', name as '이름'
+from test01;
+
+각 과별 학생수를 출력하도록 쿼리문을 작성하세요.
+학과명	학생수
+컴공	2
+경영	2
+화학	1
+
+ select dep as '학과명' , count(*) as '학생수' from test01 group by dep;
+select dep as '학과명' , count(*) as '학생수' from test01 where char_length(dep) != 0 group by dep;
+
+
+
+
+
