@@ -62,14 +62,21 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public ModelAndView boardDetailGet(ModelAndView mv,Integer num, Criteria cri) {
-		
+	public ModelAndView boardDetailGet(ModelAndView mv,Integer num, Criteria cri, HttpServletRequest request) {
+		//조회수 증가
 		boardService.views(num);
-		
+		//게시글 정보 가져오기
 		BoardVo board = boardService.getBoard(num);
-		
+		//첨부파일 정보 가져오기
 		ArrayList<FileVo> fileList = boardService.getFileList(num);
 		
+		UserVo user = userService.getUser(request);
+		//로그인 한 경우에만 추천/비추천 정보를 가져와서 화면에 전달
+		if(user != null) {
+			LikeVo like = new LikeVo(num,user.getId());
+			LikeVo dbLike = boardService.getLike(like);
+			mv.addObject("like", dbLike);
+		}
 		mv.addObject("fList", fileList);
 		mv.addObject("cri", cri);
 		mv.addObject("board", board);
@@ -170,6 +177,20 @@ public class BoardController {
 		return "ok";
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

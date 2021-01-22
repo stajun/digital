@@ -112,6 +112,11 @@ public class BoardServiceImp implements BoardService {
 			boardDao.updateLike(likeVo);
 		}
 	}
+
+	@Override
+	public LikeVo getLike(LikeVo like) {
+		return boardDao.getLike(like);
+	}
 }
 
 

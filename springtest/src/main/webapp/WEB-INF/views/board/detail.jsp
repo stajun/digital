@@ -32,8 +32,8 @@
 	      <label>조회수</label>
 	      <input type="text" class="form-control" name="views" value="${board.views}" readonly>
 	    </div>
-	    <button type="button" class="btn btn-outline-dark up">추천</button>
-	    <button type="button" class="btn btn-outline-dark down">비추천</button>
+	    <button type="button" class="btn btn-<c:if test="${like == null || like.up != 1}">outline-</c:if>dark up">추천</button>
+	    <button type="button" class="btn btn-<c:if test="${like == null || like.up != -1}">outline-</c:if>dark down">비추천</button>
 	    <div class="form-group">
 	      <label>내용</label>
 	      <textarea rows="10" class="form-control" readonly>${board.content}</textarea>
@@ -66,14 +66,45 @@
 		<button type="button" class="btn btn-outline-dark">삭제</button>
 	</a>
 	</c:if>
-	<script>
+	<script>	
+		var up = '${like.up}';
 		$('.btn.up, .btn.down').click(function(){
-			var up;
+			//추천버튼을 클릭하면
 			if($(this).hasClass('up')){
-				up = 1;
-			}else{
-				up = -1;
+				//추천상태에서 추천버튼을 클릭하면
+				if(up == 1)
+					up = 0;
+				//추천상태가 아닌상황에서 추천버튼을 클릭하면
+				else
+					up = 1;
 			}
+			//비추천버튼을 클릭하면
+			else{
+				//비추천상태에서 비추천버튼을 클릭하면
+				if(up == -1)
+					up = 0;
+				//비추천상태가 아닌 상황에서 비추천버튼을 클릭하면
+				else
+					up = -1;
+			}
+			//추천/비추천인 경우
+			if(up != 0){
+				/*
+				추천/비추천버튼 모두에 btn-dark클래스 제거, 
+    		btn-outline-dark클래스 추가
+				*/
+				$('.btn.up, .btn.down').removeClass('btn-dark')
+															.addClass('btn-outline-dark');
+				//클릭한 버튼에 btn-dark클래스 추가, btn-outline-dark클래스제거
+				$(this).addClass('btn-dark').removeClass('btn-outline-dark');
+			}
+			//추천/비추천을 취소한 경우
+			else{
+				//클릭한 버튼에 btn-dark클래스 제거, btn-outline-dark클래스추가    
+				$(this).removeClass('btn-dark').addClass('btn-outline-dark');
+			}
+			
+			
 			
 			var id = '${user.id}';
 			if(id == ''){
@@ -83,7 +114,9 @@
 			
 			var boardNum = $('input[name=num]').val();
 			var data = { 'id' : id, 'boardNum' : boardNum, 'up':up};
-			console.log(data);
+			
+			var obj = $(this);
+			
 			$.ajax({
         type:'POST',
         data: data,
@@ -91,15 +124,18 @@
         success : function(data){
 					if(up == 1){
 						alert('추천했습니다.')
-					}else{
+					}else if(up == -1){
 						alert('비추천했습니다.')
+					}else{
+						//클릭된 버튼이 추천이면 추천이 취소되었습니다
+						if(obj.hasClass('up'))
+							alert('추천이 취소되었습니다');
+						//아니면 비추천이 취소되었습니다.
+						else
+							alert('비추천이 취소되었습니다');
 					}
         }
 	    })
-			
-			
-			
-			
 		})
 	</script>
 </body>

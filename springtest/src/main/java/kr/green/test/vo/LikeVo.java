@@ -5,6 +5,15 @@ public class LikeVo {
 	private int boardNum;
 	private String id;
 	private int up;
+	
+	public LikeVo() {}
+	
+	public LikeVo(int boardNum, String id) {
+		//super();//부모 클래스의 기본 생성자를 호출
+		this.boardNum = boardNum;
+		this.id = id;
+	}
+
 	public int getNum() {
 		return num;
 	}

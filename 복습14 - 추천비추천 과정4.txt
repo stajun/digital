@@ -1,0 +1,31 @@
+게시판 추천/비추천 기능4
+ - 추천/비추천 클릭시 버튼 색상 바로 적용
+- /board/detail.jsp
+  - btn-outline-dark(선택안됨)
+  - btn-dark(선택)
+  - 추천상태에서 추천버튼을 클릭하면(추천취소) 
+    클릭한 버튼에 btn-dark클래스 제거, btn-outline-dark클래스추가
+
+    추천상태가 아니고 추천버튼을 클릭하면(추천)
+    추천/비추천버튼 모두에 btn-dark클래스 제거, 
+    btn-outline-dark클래스 추가
+    => 두 버튼 모두를 선택안된 버튼으로 만드는 과정
+    클릭한 버튼에 btn-dark클래스 추가, btn-outline-dark클래스제거
+
+    비추천 상태에서 비추천 버튼을 클릭하면(비추천취소)
+    클릭한 버튼에 btn-dark클래스 제거, btn-outline-dark클래스추가    
+
+    비추천 상태가 아니고 비추천 버튼을 클릭하면(비추천)
+    추천/비추천버튼 모두에 btn-dark클래스 제거, 
+    btn-outline-dark클래스 추가
+    => 두 버튼 모두를 선택안된 버튼으로 만드는 과정
+    클릭한 버튼에 btn-dark클래스 추가, btn-outline-dark클래스제거
+
+
+
+
+
+
+
+
+
