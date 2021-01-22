@@ -11,4 +11,14 @@
   	insert into user(id,pw,name,age,home,email)
   		values(#{user.id},#{user.pw},#{user.name},#{user.age},#{user.home},#{user.email})
   </insert>
+  
+  <update id="updateUser">
+  	update user set 
+  		pw = #{user.pw}, 
+  		name = #{user.name},
+  		age = #{user.age},
+  		home = #{user.home},
+  		email = #{user.email}
+  		where id = #{user.id}
+  </update>
 </mapper>

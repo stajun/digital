@@ -15,4 +15,8 @@ public interface UserService {
 	boolean signup(UserVo user);
 
 	UserVo getUser(HttpServletRequest request);
+
+	void updateUser(UserVo user);
+
+	void sendMail(String title, String content, String email);
 }

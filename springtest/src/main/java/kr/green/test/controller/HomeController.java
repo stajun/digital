@@ -228,6 +228,24 @@ public class HomeController {
 		}
 		return "impossible";
 	}
+	
+	@RequestMapping(value = "/find/pw", method = RequestMethod.POST)
+	@ResponseBody
+	public String findPwPost(String id) {
+		UserVo user = userService.getUser(id);
+		if(user == null)
+			return "fail";
+		String pw = "1234";
+		user.setPw(pw);
+		userService.updateUser(user);
+		String title = "비밀번호 변경 메일입니다";
+		String content = "새 비밀번호 : " + pw;
+		userService.sendMail(title,content,user.getEmail());
+		
+		
+		
+		return "success";
+	}
 }
 
 
