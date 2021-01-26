@@ -102,6 +102,31 @@ public class UserServiceImp implements UserService {
 	  }
 		
 	}
+
+	@Override
+	public String getNewPassword(int size) {
+		/* 비밀번호는 0~9숫자(10), a~z소문자(26), A~Z대문자(26)
+		 * 랜덤으로 0~61을 생성 => 62가지
+		 * 랜덤 숫자가 0~9 => 숫자 0~9
+		 * 랜덤 숫자가 10~35 => 소문자 a~z
+		 * 11 => 'a' + 11 - 10
+		 * 랜덤 숫자가 36~61 => 대문자 A~Z
+		 * 37 => 'A' + 37 - 36
+		 * */
+		String pw = "";
+		for(int i = 0; i<size; i++) {
+			int r = (int)(Math.random() * 62);
+			if(r <= 9) {
+				pw += (char)('0' + r);
+			}else if( r<= 35) {
+				pw += (char)('a' + r - 10);
+			}
+			else {
+				pw += (char)('A' + r - 36);
+			}
+		}
+		return pw;
+	}
 	
 }
 

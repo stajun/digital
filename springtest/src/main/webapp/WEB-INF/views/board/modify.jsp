@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -31,8 +33,9 @@
 	    </div>
 	    <div class="form-group">
 	      <label>내용</label>
-	      <textarea rows="10" class="form-control" name="content">${board.content}</textarea>
+	      <textarea style="display:none;" rows="10" class="form-control" name="content">${board.content}</textarea>
 	    </div>
+	    <div id="summernote"></div>
 	    <div class="form-group">
 	      <label>첨부파일</label>
 	      <input type="file" class="form-control" name="fileList">
@@ -86,12 +89,26 @@
 						cnt++;
 					}
 				})
+				
+				var content = $('#summernote').summernote('code');
+    	 	$('textarea[name=content]').val(content);
+    	 	
 				if(cnt == 0){
 					return confirm('선택된 첨부파일이 없습니다. 수정하시겠습니까?');					
 				}
+				
 				return true;
 			});
 		})
+		
 	</script>
+	<script>
+     $('#summernote').summernote({
+       placeholder: 'Hello Bootstrap 4',
+       tabsize: 2,
+       height: 300
+     });
+     $('#summernote').summernote('code','${board.content}');
+  </script>
 </body>
 </html>

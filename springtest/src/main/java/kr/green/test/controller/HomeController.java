@@ -235,16 +235,29 @@ public class HomeController {
 		UserVo user = userService.getUser(id);
 		if(user == null)
 			return "fail";
-		String pw = "1234";
+		String pw = userService.getNewPassword(8);
 		user.setPw(pw);
 		userService.updateUser(user);
 		String title = "비밀번호 변경 메일입니다";
 		String content = "새 비밀번호 : " + pw;
-		userService.sendMail(title,content,user.getEmail());
-		
+		//userService.sendMail(title,content,user.getEmail());
+		System.out.println(content);
 		
 		
 		return "success";
+	}
+	
+	@RequestMapping(value = "/user/modify", method = RequestMethod.GET)
+	public ModelAndView userModifyGet(ModelAndView mv) {
+		mv.setViewName("/main/modify");
+		return mv;
+	}
+	@RequestMapping(value = "/user/modify", method = RequestMethod.POST)
+	public ModelAndView userModifyPost(ModelAndView mv,UserVo user,HttpServletRequest r) {
+		userService.updateUser(user);
+		r.getSession().setAttribute("user", user);
+		mv.setViewName("redirect:/");
+		return mv;
 	}
 }
 

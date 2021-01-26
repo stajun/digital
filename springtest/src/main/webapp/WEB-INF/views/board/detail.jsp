@@ -36,7 +36,7 @@
 	    <button type="button" class="btn btn-<c:if test="${like == null || like.up != -1}">outline-</c:if>dark down">비추천</button>
 	    <div class="form-group">
 	      <label>내용</label>
-	      <textarea rows="10" class="form-control" readonly>${board.content}</textarea>
+	      <div>${board.content}</div>
 	    </div>
 	    <c:if test="${fList.size() != 0}">
 		    <div class="form-group">
